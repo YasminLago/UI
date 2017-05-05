@@ -1,0 +1,12 @@
+<div class="combo-data-container">
+  <div class="combo-label">
+    <label>Símbolo: </label> 
+  </div>
+  <div class="combo-select">
+    <md-select placeholder="Forma" [(ngModel)]="selectedShape" name="shape" id="combo-data-select">
+      <md-option *ngFor="let shape of shapes" [value]="shape.value">
+        {{ shape.viewValue }}
+      </md-option>
+    </md-select>
+  </div>
+</div>

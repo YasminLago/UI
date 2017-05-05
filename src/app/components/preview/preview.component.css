@@ -1,0 +1,8 @@
+.preview-container{ 
+  border: #1f618d 2px dotted;
+  width: 300px;
+  height: 300px;
+  float: left;
+  border-radius: 5px 5px 5px 5px;
+  margin: 100px auto;
+}

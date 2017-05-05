@@ -1,0 +1,20 @@
+.container-buttons {
+      /*border: #1f618d 2px solid;*/
+      width: 200px;
+      height: 35px;
+}
+
+    button {
+        background-color: #1f618d;
+        color: white;
+    }
+
+    .create-button {
+        float: left;
+    }
+
+    .color-button {
+        float: right;
+    }
+
+

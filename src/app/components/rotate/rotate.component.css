@@ -1,0 +1,45 @@
+.rotate-container {
+    /*border:  #1f618d 1px solid;*/
+    width: 270px;  
+    height: 41px;
+}
+
+#rotate-input {
+    width: 25px;
+    height: 20px;
+}
+
+#rotatelbl {
+    display: table-cell;
+	vertical-align: middle;
+}
+
+.rotate-element {
+    display: inline-block; 
+    /*margin-right: -1px; */
+    vertical-align: middle; 
+    margin-right: 3px;
+}
+
+.rotate-buttons {
+    /*border:  #1f618d 1px solid;*/
+    float: right;
+}
+
+button {
+    background-color: #1f618d;
+}
+
+md-icon {
+    color: white;
+}
+
+.rotate-label {
+   /* border:  #1f618d 1px solid;*/
+    width: 50px;
+    float: left;
+    height: 41px;
+    display: table;
+
+}
+

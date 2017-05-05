@@ -1,0 +1,54 @@
+body {
+    display: block;
+}
+.container {
+    /*border:  #1f618d 1px solid;*/
+    height: 600px;
+}
+
+.content-tabs {
+    border:  #1f618d 1px solid;
+    height: 600px;
+    width: 640px;
+    margin-left: 100px;
+    float: left;
+    position: relative;
+}
+
+.point-container {
+    width: 300px;
+    display: block;
+    margin-left: 20px;
+    padding: 8px; 
+}
+
+button {
+    background-color: #1f618d;
+    color: white;
+}
+
+/*md-tab-group {
+    border:  #1f618d 1px solid;
+}
+
+md-border-bottom {
+    border:  #1f618d 1px solid;
+}*/
+
+#urlButton {
+    margin-left: 5px;
+}
+
+.line-container {
+  /*  border:  #1f618d 1px solid;*/
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: 20px;
+    padding: 8px; 
+}
+
+#line-tabs {
+    float: left;
+}
+

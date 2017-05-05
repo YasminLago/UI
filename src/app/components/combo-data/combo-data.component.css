@@ -1,0 +1,30 @@
+.combo-data-container {
+    /* border:  #1f618d 1px solid;*/
+     width: 250px;
+     height: 41px;
+}
+
+.combo-label {
+    /*border:  #1f618d 1px solid;*/
+    width: 70px;
+    height: 41px;
+    float: left;
+    display: table;
+}
+    label {
+        display: table-cell;
+	    vertical-align: middle;
+    }
+
+
+.combo-select {
+    /*border:  #1f618d 1px solid;*/
+    width: 120px;
+    float: right;
+    height: 41px;
+}
+    #combo-data-select {
+        
+    }
+
+

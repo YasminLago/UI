@@ -1,0 +1,27 @@
+.slider-container {
+    /* border:  #1f618d 1px solid;*/
+     width: 250px; 
+     height: 30px;
+}
+    .sliderlbl {
+       /* border:  #1f618d 1px solid;*/
+        float: left;
+        display: table;
+        height: 30px;
+    }
+    label {
+        display: table-cell;
+	    vertical-align: middle;
+    }
+
+    .slider-element {
+        /*border:  #1f618d 1px solid;*/
+        float: right;
+        height: 30px;
+        width: 120px;
+    }
+        md-slider {
+            
+        }
+        
+
