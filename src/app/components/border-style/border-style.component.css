@@ -2,7 +2,7 @@
     border:  #000 1px solid;
     margin-left: 25px;
     width: 250px;
-    height: 164px;
+    height: 184px;
     padding: 8px;
     padding-bottom: 1px;
     float: left;
@@ -13,8 +13,3 @@
     background-color: #1f618d;
     color: white;
 }
-
-md-checkbox {
-    font-weight: bold;
-}
-

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'my-combo-data',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./combo-data.component.css']
 })
 export class ComboDataComponent {
+  @Input() textLabelCombo:string;  
 
   selectedShape: string;
 

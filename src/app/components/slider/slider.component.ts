@@ -6,14 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent {
-  @Input()
-  textLabel:string = "Transparentar:";
-                           
-
-
+  @Input() textLabelSlider:string;               
 }
-/*Array<string> = [
-                            "Transparentar:",
-                            "Tamaño:",
-                            "Ancho:",
-                            "Borde:"];*/

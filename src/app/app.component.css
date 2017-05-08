@@ -7,7 +7,7 @@ body {
 }
 
 .content-tabs {
-    border:  #1f618d 1px solid;
+    /*border:  #1f618d 1px solid;*/
     height: 600px;
     width: 640px;
     margin-left: 100px;
@@ -51,4 +51,8 @@ md-border-bottom {
 #line-tabs {
     float: left;
 }
+    .content-tab-line {
+       /* border:  #1f618d 1px solid;*/
+        margin-top: 5px;
+    }
 

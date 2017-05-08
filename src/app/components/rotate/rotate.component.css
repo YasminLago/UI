@@ -4,15 +4,33 @@
     height: 41px;
 }
 
-#rotate-input {
-    width: 25px;
-    height: 20px;
-}
+    .rotate-label {
+    /* border:  #1f618d 1px solid;*/
+        width: 50px;
+        float: left;
+        height: 41px;
+        display: table;
+    }
+        #rotatelbl {
+            display: table-cell;
+            vertical-align: middle;
+        }
 
-#rotatelbl {
-    display: table-cell;
-	vertical-align: middle;
-}
+    .rotate-buttons {
+        /*border:  #1f618d 1px solid;*/
+        float: right;
+    }
+        #rotate-input {
+            width: 25px;
+            height: 20px;
+        }
+        button {
+            background-color: #1f618d;
+        }
+
+        md-icon {
+            color: white;
+        }
 
 .rotate-element {
     display: inline-block; 
@@ -21,25 +39,6 @@
     margin-right: 3px;
 }
 
-.rotate-buttons {
-    /*border:  #1f618d 1px solid;*/
-    float: right;
-}
+    
 
-button {
-    background-color: #1f618d;
-}
-
-md-icon {
-    color: white;
-}
-
-.rotate-label {
-   /* border:  #1f618d 1px solid;*/
-    width: 50px;
-    float: left;
-    height: 41px;
-    display: table;
-
-}
 

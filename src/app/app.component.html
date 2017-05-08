@@ -1,23 +1,20 @@
 <div class="container">
-
   <div class="content-tabs">
     <md-tab-group>
       <md-tab label="Puntos">
         <div class="point-container">
-          <my-button></my-button>
+          <my-button [preview-comp]="previewComponent"></my-button>
           <br>
-            <my-combo-data></my-combo-data>
+            <my-combo-data textLabelCombo="Símbolo"></my-combo-data>
           <br>
-            <!--<p> Forma seleccionada: {{selectedShape}} </p>-->
-          <my-image></my-image>
+            <my-image></my-image>
           <br>
-          <my-slider></my-slider>
+            <my-slider textLabelSlider="Transparentar"></my-slider>
           <br>
-          <my-slider></my-slider>
+            <my-slider textLabelSlider="Tamaño"></my-slider>
           <br>
-          <my-rotate></my-rotate>
+            <my-rotate></my-rotate>
           <br>
-          
         </div>
         <border-style></border-style>
       </md-tab>
@@ -28,15 +25,19 @@
           <my-button></my-button>
           <md-tab-group id="line-tabs">
             <md-tab label="Línea 1">
-            <md-checkbox align="end">Línea 1</md-checkbox><br>
-              <my-combo-data></my-combo-data><br>
-              <my-slider></my-slider><br>
-              <my-slider></my-slider><br>
-              <my-slider></my-slider><br>
-              <my-slider></my-slider><br>
-              
+              <div class="content-tab-line">
+                <my-checkbox textLabelCheckBox="Línea 1"></my-checkbox>
+              <br>
+                <my-combo-data textLabelCombo="Tipo de línea"></my-combo-data>
+              <br>
+                <my-slider textLabelSlider="Transparentar"></my-slider>
+              <br>
+                <my-slider textLabelSlider="Ancho"></my-slider>
+              <br>
+                <my-slider textLabelSlider="Separación entre líneas"></my-slider>
+              <br>
+              </div>
             </md-tab>
-            
             <md-tab label="Línea 2">
             </md-tab>
           </md-tab-group>
@@ -50,7 +51,7 @@
     </md-tab-group>
     
   </div>
-  <my-preview></my-preview>
+  <my-preview #previewComponent></my-preview>
   <my-save-cancel-buttons></my-save-cancel-buttons>
 </div>
 

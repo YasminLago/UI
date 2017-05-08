@@ -22,6 +22,7 @@ import { ImageComponent } from "./components/image/image.component";
 import { PreviewComponent } from "./components/preview/preview.component";
 import { SaveCancelComponent } from "./components/save-cancel/save-cancel.component";
 import { ButtonComponent } from "./components/button/button.component";
+import { CheckboxComponent } from "./components/checkbox/checkbox.component";
 import 'hammerjs';
 
 @NgModule({
@@ -34,7 +35,8 @@ import 'hammerjs';
     ImageComponent,
     PreviewComponent,
     SaveCancelComponent,
-    ButtonComponent
+    ButtonComponent,
+    CheckboxComponent
   ],
   imports: [
     BrowserModule,

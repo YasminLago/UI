@@ -1,20 +1,24 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef } from '@angular/core';
+
+import { PreviewComponent } from "../preview/preview.component";
 
 @Component({
   selector: 'my-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css']
+  styleUrls: ['./button.component.css'],
+  inputs: [
+    'previewComp : preview-comp',
+
+  ]
 })
 export class ButtonComponent {
-@ViewChild("myCanvas") myCanvas: ElementRef;
 
-canvas:boolean = false;
+  previewComp: PreviewComponent;
 
-  createShape() {
-    this.canvas = true;
-    /*var ctx:CanvasRenderingContext2D = this.myCanvas.nativeElement.getContext("2d");
-    ctx.fillStyle = 'blue';
-    ctx.fillRect(10,10,150,150);*/
+  constructor() { }
+
+  public createShape() {
+    this.previewComp.setCanvas(true);
   }
 
 }
