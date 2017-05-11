@@ -3,12 +3,6 @@
       width: 200px;
       height: 35px;
 }
-
-    button {
-        background-color: #1f618d;
-        color: white;
-    }
-
     .create-button {
         float: left;
     }

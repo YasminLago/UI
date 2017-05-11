@@ -1,3 +1,11 @@
-md-checkbox {
-    font-weight: bold;
+.check-container {
+    /*border:  #1f618d 1px solid;*/
+    width: 250px;
+    height: 30px;
 }
+
+    md-checkbox {
+        font-weight: bold;
+    }
+
+

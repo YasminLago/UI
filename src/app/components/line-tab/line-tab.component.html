@@ -1,0 +1,16 @@
+<div class="content-tab-line">
+  <br>
+  <my-checkbox textLabelCheckBox= {{checkText}}></my-checkbox>
+  <my-general [gTypeCombo]=false [gOpacitySlider]=false [gWidthSlider]=false [gSeparationSlider]=false></my-general>
+  <border-style textLabelCheckBox="Borde" [check]=false [combo]=false [widthSlider]=false [opacitySlider]=false [separationSlider]=false [positionSlider]=false></border-style>
+  <div id="sym-tabs">
+    <md-tab-group>
+        <md-tab label="Símbolo">
+          <border-style textLbl="Símbolo de línea" [lbl]=false [combo]=false [image]=false [sizeSlider]=false [opacitySlider]=false [rotate]=false [distanceSlider]=false></border-style>
+        </md-tab>
+        <md-tab label="Borde">
+          <border-style textLabelCheckBox="Borde" [check]=false [widthSlider]=false [opacitySlider]=false></border-style>
+        </md-tab>
+      </md-tab-group>
+  </div>
+</div>            

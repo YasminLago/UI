@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent {
-  @Input() textLabelSlider:string;               
+  @Input() textLabelSlider:string;           
 }

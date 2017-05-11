@@ -1,0 +1,9 @@
+.content-tab-line {
+    /*border:  #1f618d 1px solid;*/
+    width: 580px;
+    height: auto; 
+}
+
+    #sym-tabs {
+        float: left;
+    }

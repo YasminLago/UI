@@ -1,58 +1,85 @@
+<header></header>
 <div class="container">
+  <h1>{{title}}</h1>
   <div class="content-tabs">
     <md-tab-group>
+      <!-- *******************************************POINTS TAB********************************************** -->
       <md-tab label="Puntos">
-        <div class="point-container">
+        <div class="shape-container">
           <my-button [preview-comp]="previewComponent"></my-button>
           <br>
-            <my-combo-data textLabelCombo="Símbolo"></my-combo-data>
-          <br>
-            <my-image></my-image>
-          <br>
-            <my-slider textLabelSlider="Transparentar"></my-slider>
-          <br>
-            <my-slider textLabelSlider="Tamaño"></my-slider>
-          <br>
-            <my-rotate></my-rotate>
-          <br>
-        </div>
-        <border-style></border-style>
-      </md-tab>
+          <md-tab-group id="point-tab">
+            <md-tab label="Punto">
+              <br>
+              <my-point-tab></my-point-tab>
+          </md-tab>
+          <md-tab label="Textos">
+            <my-text-tab></my-text-tab>
+          </md-tab>
+        </md-tab-group>
+      </div>    
+    </md-tab>
+      <!-- *******************************************END POINTS TAB********************************************** -->
 
-
+      <!-- *******************************************LINES TAB********************************************** -->
       <md-tab label="Líneas">
-        <div class="line-container">
+        <div class="shape-container">
           <my-button></my-button>
+          <br>
           <md-tab-group id="line-tabs">
             <md-tab label="Línea 1">
-              <div class="content-tab-line">
-                <my-checkbox textLabelCheckBox="Línea 1"></my-checkbox>
-              <br>
-                <my-combo-data textLabelCombo="Tipo de línea"></my-combo-data>
-              <br>
-                <my-slider textLabelSlider="Transparentar"></my-slider>
-              <br>
-                <my-slider textLabelSlider="Ancho"></my-slider>
-              <br>
-                <my-slider textLabelSlider="Separación entre líneas"></my-slider>
-              <br>
-              </div>
+              <my-line-tab checkText="Línea 1"></my-line-tab>
             </md-tab>
             <md-tab label="Línea 2">
+              <my-line-tab checkText="Línea 2"></my-line-tab>
             </md-tab>
+            <md-tab label="Línea 3">
+              <my-line-tab checkText="Línea 3"></my-line-tab>
+            </md-tab>
+            <md-tab label="Textos">
+              <my-text-tab></my-text-tab>
+          </md-tab>
           </md-tab-group>
         </div>
-        <border-style></border-style>
       </md-tab>
+      <!-- *******************************************END LINES TAB********************************************** -->
+      <!-- *******************************************POLYGONS TAB********************************************** -->
+      <md-tab label="Polígonos">
+        <div class="shape-container">
+          <my-button></my-button>
+          <br>
+          <my-general [gOpacitySlider]=false [gSizeSlider]=false></my-general>
+            <div class="border-tab">
+          <md-tab-group>
+            <md-tab label="Borde 1">
+            <border-style textLabelCheckBox="Borde 1" [check]=false [combo]=false [widthSlider]=false [opacitySlider]=false [separationSlider]=false [positionSlider]=false></border-style>
+            </md-tab>
+            <md-tab label="Borde 2">
+            <border-style textLabelCheckBox="Borde 2" [check]=false [combo]=false [widthSlider]=false [opacitySlider]=false [separationSlider]=false [positionSlider]=false></border-style>
+            </md-tab>
+             <md-tab label="Borde 3">
+            <border-style textLabelCheckBox="Borde 3" [check]=false [combo]=false [widthSlider]=false [opacitySlider]=false [separationSlider]=false [positionSlider]=false></border-style>
+            </md-tab>
+          </md-tab-group>
+            </div>
+            <div class="fill-tab">
+          <md-tab-group>
+            <md-tab label="Fill">
+              <border-style textLabelCheckBox="Fill" [check]=false [combo]=false [image]=false [sizeSlider]=false [opacitySlider]=false [rotate]=false></border-style>
+              </md-tab>
+              <md-tab label="Borde Fill">
+              <border-style textLabelCheckBox="Borde Fill" [check]=false [widthSlider]=false [opacitySlider]=false [separationSlider]=false></border-style>
+            </md-tab>
+          </md-tab-group>
+            </div>
+        </div>
+      </md-tab>
+      <!-- *******************************************END POLYGONS TAB********************************************** -->
 
-      
-      <md-tab label="Polígonos"></md-tab>
-      <md-tab label="Textos"></md-tab>
     </md-tab-group>
     
   </div>
   <my-preview #previewComponent></my-preview>
   <my-save-cancel-buttons></my-save-cancel-buttons>
 </div>
-
 <router-outlet></router-outlet>

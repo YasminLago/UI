@@ -23,6 +23,12 @@ import { PreviewComponent } from "./components/preview/preview.component";
 import { SaveCancelComponent } from "./components/save-cancel/save-cancel.component";
 import { ButtonComponent } from "./components/button/button.component";
 import { CheckboxComponent } from "./components/checkbox/checkbox.component";
+import { LineTabComponent } from "./components/line-tab/line-tab.component";
+import { TextTabComponent } from "./components/text-tab/text-tab.component";
+import { PointTabComponent } from "./components/point-tab/point-tab.component";
+import { BorderTabComponent } from "./components/border-tab/border-tab.component";
+import { GeneralComponent } from "./components/general/general.component";
+
 import 'hammerjs';
 
 @NgModule({
@@ -36,7 +42,12 @@ import 'hammerjs';
     PreviewComponent,
     SaveCancelComponent,
     ButtonComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    LineTabComponent,
+    TextTabComponent,
+    PointTabComponent,
+    BorderTabComponent,
+    GeneralComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-.border-style-container {
+.container{
     border:  #000 1px solid;
    /* margin-left: 25px;*/
     width: 550px;
@@ -10,15 +10,6 @@
     margin-top: 15px;
     margin-bottom: 15px; 
 }
-    #lbl-text {
-        width: 250px;
-        height: 30px;
-    }
-
-        label {
-            font-weight: bold;
-            float: left
-        }
 
     .box1 {
         /*border:   #84381e 1px solid;*/
@@ -31,21 +22,11 @@
         float: right;
         height: auto;
     }
-    
-        #border-color-button {
+        #general-color-button {
+            float: right;
             margin-bottom: 5px;
         }
-
-.border-style-container > #border-color-button {
-    float: right;
-}
-
-.box2 > #border-color-button {
-    float: right;
-}
 
 .hidden {
   display: none !important;
 }
-
-

@@ -24,20 +24,17 @@
             width: 25px;
             height: 20px;
         }
-        button {
-            background-color: #1f618d;
-        }
 
         md-icon {
             color: white;
         }
 
-.rotate-element {
-    display: inline-block; 
-    /*margin-right: -1px; */
-    vertical-align: middle; 
-    margin-right: 3px;
-}
+    .rotate-element {
+        display: inline-block; 
+        /*margin-right: -1px; */
+        vertical-align: middle; 
+        margin-right: 3px;
+    }
 
     
 

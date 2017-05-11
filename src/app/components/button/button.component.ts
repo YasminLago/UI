@@ -5,10 +5,10 @@ import { PreviewComponent } from "../preview/preview.component";
 @Component({
   selector: 'my-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css'],
+  styleUrls: ['./button.component.css',
+              '../../styles/buttonStyle.css'],
   inputs: [
-    'previewComp : preview-comp',
-
+    'previewComp : preview-comp', //#previewComponent --[preview-comp]=previewComponent
   ]
 })
 export class ButtonComponent {

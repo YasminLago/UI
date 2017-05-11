@@ -12,11 +12,11 @@ export class PreviewComponent {
  canvas:boolean = false;
  canvas2:boolean = false;
 
- // @ViewChild("myCanvas") myCanvas: ElementRef;
+  @ViewChild("myCanvas") myCanvas: ElementRef;
+
   constructor(){}
   
   setCanvas(canvas:boolean){
     this.canvas = canvas;
-    console.log(canvas);
   }
 }

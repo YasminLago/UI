@@ -1,27 +1,22 @@
 .url-image-container {
    /* border:  #1f618d 1px solid;*/
     width: 250px;
-    height: 37px;
+    height: 40px;
 }
     .imglbl {
        /* border:  #1f618d 1px solid;*/
         float: left;
         display: table;
-        height: 37px;
+        height: 40px;
     }
-    #imagelbl {
-        display: table-cell;
-	    vertical-align: middle;
-    }
+        #imagelbl {
+            display: table-cell;
+            vertical-align: middle;
+        }
 
-
-.image-button {
-    /*border:  #1f618d 1px solid;*/
-    float: right;
-    margin-right: 30px;
-}
-    #url-image-button {
-        background-color: #1f618d;
-        color: white;
+    .image-button {
+        /*border:  #1f618d 1px solid;*/
+        float: right;
+        margin-right: 30px;
     }
 

@@ -1,6 +1,21 @@
 <div class="border-style-container">
-      <my-checkbox textLabelCheckBox="Borde"></my-checkbox><br>
-      <my-slider textLabelSlider="Ancho"></my-slider><br>
-      <my-slider textLabelSlider="Transparentar"></my-slider><br>
-      <button md-raised-button id="border-style-button">Color</button>
+      <div id="lbl-text" [hidden]="lbl">
+            <label>{{textLbl}}</label>
+      </div>
+      <my-checkbox [hidden]="check" textLabelCheckBox= {{textLabelCheckBox}}></my-checkbox>
+      <div class="box1">
+            <my-combo-data [hidden]="combo" textLabelCombo="Tipo"></my-combo-data>
+            <my-image [hidden]="image"></my-image>
+            <my-slider [hidden]="widthSlider" textLabelSlider="Ancho"></my-slider>
+            <my-slider [hidden]="opacitySlider" textLabelSlider="Transparentar"></my-slider>
+      </div>
+      <div class="box2">
+            <my-slider [hidden]="separationSlider" textLabelSlider="Separación"></my-slider>
+            <my-slider [hidden]="sizeSlider" textLabelSlider="Tamaño"></my-slider>
+            <my-slider [hidden]="distanceSlider" textLabelSlider="Distancia"></my-slider>
+            <my-slider [hidden]="positionSlider" textLabelSlider="Posición"></my-slider>
+            <my-rotate [hidden]="rotate"></my-rotate>
+            <br>
+            <button md-raised-button [hidden]="colorButton" id="border-color-button">Color</button>
+      </div>
 </div>

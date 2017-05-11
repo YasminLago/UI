@@ -1,25 +1,24 @@
 .combo-data-container {
      /*border:  #1f618d 1px solid;*/
      width: 250px;
-     height: 41px;
+     height: 40px;
 }
 
-.combo-label {
-    /*border:  #1f618d 1px solid;*/
-    width: 100px;
-    height: 41px;
-    float: left;
-    display: table;
-}
-    label {
-        display: table-cell;
-	    vertical-align: middle;
+    .combo-label {
+        /*border:  #1f618d 1px solid;*/
+        width: 100px;
+        height: 40px;
+        float: left;
+        display: table;
     }
+        label {
+            display: table-cell;
+            vertical-align: middle;
+        }
 
-.combo-select {
-    /*border:  #1f618d 1px solid;*/
-    width: 120px;
-    float: right;
-    height: 41px;
-}
-
+    .combo-select {
+        /*border:  #1f618d 1px solid;*/
+        width: 120px;
+        float: right;
+        height: 30px;
+    }
