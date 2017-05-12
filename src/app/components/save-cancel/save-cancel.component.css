@@ -1,9 +1,9 @@
 .save-cancel-container {
     /*border:  #1f618d 1px solid;*/
     float: right;
-    width: 240px;
-    /*margin: 191px auto;
-    position: absolute;
+    width: 85px;
+    margin-top: -90px;
+    /*position: absolute;
     right: 400px;
     bottom: 0;*/
 }
@@ -11,21 +11,22 @@
         float: left;
     }
         #save-button {
-            border: #229954 2px solid;
+            border: #1e8449 2px solid;
+            background: #1e8449 ;
         }
-
-        #save-icon {
-            color: #229954;
+        #save-icon {  
+            color: #FFF;
         }   
 
     .cancel-button-content {
         float: right;
     }
         #cancel-button {
+            background: #922b21;
             border: #922b21 2px solid;
         }
         #cancel-icon {
-            color: #922b21;
+            color: #FFF;
         }
 
     button {

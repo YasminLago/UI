@@ -1,9 +1,29 @@
-.preview-container{ 
-  border: #1f618d 2px dotted;
-  width: 300px;
-  height: 300px;
+.container {
+  /*border: #1f618d 1px solid;*/
+  width: 393px;
+  height: 500px;
   float: left;
-  border-radius: 5px 5px 5px 5px;
-  margin: 100px auto;
-  padding: 5px;
+
 }
+
+  .preview-container{ 
+    border: #1f618d 2px dotted;
+    width: 300px;
+    height: 300px;
+    float: left;
+    border-radius: 5px 5px 5px 5px;
+    margin: 100px auto;
+    margin-left: 80px;
+    padding: 5px;
+    display: table;
+  }
+
+    #shapePreview {
+      /*border: #1f618d 1px solid;*/
+      height: 300px;
+      width: 300px;
+    }
+      #shape {
+        display: table-cell;
+        vertical-align: middle;
+      }

@@ -8,7 +8,7 @@ import { PreviewComponent } from "../preview/preview.component";
   styleUrls: ['./button.component.css',
               '../../styles/buttonStyle.css'],
   inputs: [
-    'previewComp : preview-comp', //#previewComponent --[preview-comp]=previewComponent
+    'previewComp : preview-comp', //preview#previewComponent --[preview-comp]=previewComponent
   ]
 })
 export class ButtonComponent {
