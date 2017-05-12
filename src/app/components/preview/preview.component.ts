@@ -1,11 +1,13 @@
 import { Component, ViewChild, Input, AfterViewInit } from '@angular/core';
 
 import { ButtonComponent } from "../button/button.component";
+import { PreviewService } from "../../services/PreviewService";
 
 @Component({
   selector: 'my-preview',
   templateUrl: './preview.component.html',
-  styleUrls: ['./preview.component.css']
+  styleUrls: ['./preview.component.css'],
+  providers: [PreviewService]
 })
 export class PreviewComponent implements AfterViewInit{
 
@@ -20,7 +22,9 @@ export class PreviewComponent implements AfterViewInit{
   colorFill:string = "#1f618d";
   colorStroke:string = "#00000";
 
-  constructor(){}
+  constructor(private previewService:PreviewService) {
+   
+  }
 
   setCanvas(canvas:boolean){
     this.canvas = canvas;
