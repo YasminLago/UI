@@ -2,6 +2,7 @@ import { Component, ViewChild, Input, AfterViewInit, OnChanges, SimpleChanges } 
 
 import { ButtonComponent } from "../button/button.component";
 import { PreviewService } from "../../services/PreviewService";
+import { PreviewAttr } from "../../services/PreviewAttr";
 
 @Component({
   selector: 'my-preview',
@@ -12,7 +13,7 @@ import { PreviewService } from "../../services/PreviewService";
   ],
   providers: [PreviewService]
 })
-export class PreviewComponent implements AfterViewInit, OnChanges{
+export class PreviewComponent implements AfterViewInit{
 
   @ViewChild("myCanvas") mycanvas;
 
@@ -25,19 +26,11 @@ export class PreviewComponent implements AfterViewInit, OnChanges{
   colorStroke:string = "#00000";
 
   constructor(private previewService:PreviewService) {
-    previewService.anyProperty$$.subscribe(
+    previewService.getAnyProperty$.subscribe(
       previewAttr => {
       this.drawPoint(previewAttr)
 
     });
-  }
-
-  ngOnChanges(changes: { [propName: string]: SimpleChanges }) {
-    if (typeof (changes['staticData']) !== 'undefined') {
-
-    }
-    // this.drawPoint();
-    // console.log(this.sizePoint);
   }
 
   setCanvas(canvas:boolean){

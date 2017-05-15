@@ -1,37 +1,15 @@
 import {Injectable} from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { PreviewAttr } from "./PreviewAttr";
 
 @Injectable()
 export class PreviewService {
 
+    previewAttr = new PreviewAttr();
 
-    PreviewAttr previewAtrr;
-    //Sources
-    private symbol = new Subject<string>();
-    private type = new Subject<string>();
-    private image = new Subject<string>();
-    private opacity = new Subject<number>();
-    private width = new Subject<number>();
-    private size = new Subject<number>();
-    private separation = new Subject<number>();
-    private rotate = new Subject<number>();
-    private color = new Subject<string>();
-    private anyProperty = new Subject<string>();
+    constructor() {}
 
-    //Streams
-    symbol$ = this.symbol.asObservable();
-    type$ = this.type.asObservable();
-    image$ = this.image.asObservable();
-    opacity$ = this.opacity.asObservable();
-    width$ = this.width.asObservable();
-    size$ = this.size.asObservable();
-    separation$ = this.separation.asObservable();
-    rotate$ = this.rotate.asObservable();
-    color$ = this.color.asObservable();
-
-    anyProperty$ = this.anyProperty.asObservable();
-
-//Attributes
+    //Attributes
     //Sliders
     public size_attr = "size";
     public opacity_attr = "opacity";
@@ -51,48 +29,41 @@ export class PreviewService {
     public symbol_attr = "symbol";
     public type_attr = "type";
 
-
-    constructor() {}
-
     setSymbol(symbol:string) {
-        this.symbol.next(symbol);
+        this.previewAttr.getSymbol().next(symbol);
     }
 
     setType(type:string) {
-        this.type.next(type);
+        this.previewAttr.getType().next(type);
     }
 
     setImage(image:string) {
-        this.image.next(image);
+        this.previewAttr.getImage().next(image);
     }
 
     setOpacity(opacity:number) {
-        this.opacity.next(opacity);
+        this.previewAttr.getOpacity().next(opacity);
     }
 
     setWidth(width:number) {
-        this.width.next(width);
+        this.previewAttr.getWidth().next(width);
     }
 
     setSize(size:number) {
-        this.size.next(size);
-        this.anyProperty.next(previewAttr);
-    }
-
-    getSize():any {
-        return this.size;
+        this.previewAttr.getSize().next(size);
+        this.previewAttr.getAnyProperty().next(this.previewAttr);
     }
 
     setSeparation(separation:number) {
-        this.separation.next(separation);
+        this.previewAttr.getSeparation().next(separation);
     }
 
     setRotate(rotate:number) {
-        this.rotate.next(rotate);
+        this.previewAttr.getRotate().next(rotate);
     }
 
     setColorButton(color:string) {
-        this.color.next(color);
+        this.previewAttr.getColor().next(color);
     }
 
     setValue (attr:string, value:any) {
