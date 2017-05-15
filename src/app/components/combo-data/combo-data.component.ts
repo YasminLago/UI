@@ -11,6 +11,7 @@ import { Shape } from "../../combo";
 export class ComboDataComponent {
   @Input() textLabelCombo:string;  
   @Input() placeHolder:string;
+  @Input() attrName:string;
 
   selectedShape: string;
   shapes: Shape[] = [];

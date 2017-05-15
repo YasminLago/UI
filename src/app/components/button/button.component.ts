@@ -13,6 +13,8 @@ import { PreviewComponent } from "../preview/preview.component";
 })
 export class ButtonComponent {
 
+  @Input() attrName:string;
+  @Input() textButton : string;
   previewComp: PreviewComponent;
 
   constructor() { }

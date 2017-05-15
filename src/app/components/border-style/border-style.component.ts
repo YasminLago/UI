@@ -21,7 +21,7 @@ export class BorderStyleComponent {
   @Input() positionSlider:boolean = true;
   @Input() distanceSlider:boolean = true;
   @Input() sizeSlider:boolean = true;
-  @Input() colorButton:boolean = true;
+  @Input() colorButton:boolean = false;
   @Input() image:boolean = true;
   @Input() rotate:boolean = true;
 

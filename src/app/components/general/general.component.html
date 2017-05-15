@@ -1,17 +1,53 @@
 <div class="container">
   <div class="box1">
-    <my-combo-data [hidden]="gSymbolCombo" textLabelCombo="Símbolo" placeHolder = "Forma"></my-combo-data>
-    <my-combo-data [hidden]="gTypeCombo" textLabelCombo="Tipo de línea" placeHolder="Tipo"></my-combo-data>
-    <my-image [hidden]="gImage"></my-image>
-    <my-slider [hidden]="gOpacitySlider" textLabelSlider="Transparentar"></my-slider>
+    <my-combo-data 
+                  [hidden]="gSymbolCombo" 
+                  [attrName]="symbol"
+                  textLabelCombo="Símbolo" 
+                  placeHolder = "Forma">
+    </my-combo-data>
+    <my-combo-data 
+                  [hidden]="gTypeCombo" 
+                  [attrName]="type" 
+                  textLabelCombo="Tipo de línea" 
+                  placeHolder="Tipo">
+    </my-combo-data>
+    <my-image 
+              [hidden]="gImage" 
+              [attrName]="externalImage">
+    </my-image>
+    <my-slider 
+              [hidden]="gOpacitySlider" 
+              [attrName]="opacity" 
+              textLabelSlider="Transparentar">
+    </my-slider>
   </div>
   <div class="box2">
-    <my-slider [hidden]="gWidthSlider" textLabelSlider="Ancho"></my-slider>
-    <my-slider [hidden]="gSizeSlider" textLabelSlider="Tamaño">
+    <my-slider 
+              [hidden]="gWidthSlider" 
+              [attrName]="width" 
+              textLabelSlider="Ancho">
     </my-slider>
-    <my-rotate [hidden]="gRotate"></my-rotate>
-    <my-slider [hidden]="gSeparationSlider" textLabelSlider="Separación" title="Separación entre líneas"></my-slider>
+    <my-slider 
+               [hidden]="gSizeSlider" 
+               [attrName]="size" 
+               textLabelSlider="Tamaño">
+    </my-slider>
+    <my-rotate 
+              [hidden]="gRotate" 
+              [attrName]="rotate" >
+    </my-rotate>
+    <my-slider 
+              [hidden]="gSeparationSlider" 
+              [attrName]="separation"  
+              textLabelSlider="Separación" 
+              title="Separación entre líneas">
+    </my-slider>
     <br>
-    <button md-button id="general-color-button">Color</button>
+    <my-button 
+               id="general-color-button" 
+               [attrName]="color" 
+               textButton="Color">
+    </my-button>
   </div>
 </div>

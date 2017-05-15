@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'my-image',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
               '../../styles/buttonStyle.css']
 })
 export class ImageComponent implements OnInit {
+
+  @Input() attrName:string;
 
   constructor() { }
 

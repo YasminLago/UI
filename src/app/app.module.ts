@@ -13,6 +13,8 @@ import {MdCheckboxModule,
         MdOptionModule,
         MdIconModule} from '@angular/material';
 
+import { PreviewService } from "./services/PreviewService";
+
 import { AppComponent } from './app.component';
 import { BorderStyleComponent } from './components/border-style/border-style.component';
 import { SliderComponent } from './components/slider/slider.component';
@@ -45,7 +47,7 @@ import 'hammerjs';
     LineTabComponent,
     TextTabComponent,
     PointTabComponent,
-    GeneralComponent
+    GeneralComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,7 @@ import 'hammerjs';
     MdOptionModule,
     MdIconModule
   ],
-  providers: [],
+  providers: [PreviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

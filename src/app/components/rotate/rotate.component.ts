@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'my-rotate',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RotateComponent implements OnInit {
 
+  @Input() attrName:string;
+  
   constructor() { }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, Input, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 
 import { ButtonComponent } from "../button/button.component";
 import { PreviewService } from "../../services/PreviewService";
@@ -7,12 +7,14 @@ import { PreviewService } from "../../services/PreviewService";
   selector: 'my-preview',
   templateUrl: './preview.component.html',
   styleUrls: ['./preview.component.css'],
+  inputs : [
+
+  ],
   providers: [PreviewService]
 })
-export class PreviewComponent implements AfterViewInit{
+export class PreviewComponent implements AfterViewInit, OnChanges{
 
   @ViewChild("myCanvas") mycanvas;
-  //@Input() sizePoint:number;
 
   ctx:CanvasRenderingContext2D;
   canvas:boolean = false;
@@ -23,12 +25,25 @@ export class PreviewComponent implements AfterViewInit{
   colorStroke:string = "#00000";
 
   constructor(private previewService:PreviewService) {
-   
+    previewService.anyProperty$$.subscribe(
+      previewAttr => {
+      this.drawPoint(previewAttr)
+
+    });
+  }
+
+  ngOnChanges(changes: { [propName: string]: SimpleChanges }) {
+    if (typeof (changes['staticData']) !== 'undefined') {
+
+    }
+    // this.drawPoint();
+    // console.log(this.sizePoint);
   }
 
   setCanvas(canvas:boolean){
     this.canvas = canvas;
     this.drawPoint();
+    console.log(this.sizePoint);
   }
 
   ngAfterViewInit() {
@@ -39,7 +54,7 @@ export class PreviewComponent implements AfterViewInit{
   }
 
   /**************************POINT*****************************/
-  drawPoint() {
+  drawPoint(size?:any) {
     this.ctx.beginPath();
     this.ctx.arc(150, 140, this.sizePoint, 0, 2*Math.PI, true);
     
@@ -50,8 +65,8 @@ export class PreviewComponent implements AfterViewInit{
     this.ctx.stroke();
   }
 
-  setPointSize(sizePoint:number) {
-    this.sizePoint = sizePoint;  
+  setSizePoint() {
+   
   }
 
   opacityPoint(){
