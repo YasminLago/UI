@@ -28,6 +28,7 @@ import { CheckboxComponent } from "./components/checkbox/checkbox.component";
 import { LineTabComponent } from "./components/line-tab/line-tab.component";
 import { TextTabComponent } from "./components/text-tab/text-tab.component";
 import { PointTabComponent } from "./components/point-tab/point-tab.component";
+import { PolygonTabComponent } from "./components/polygon-tab/polygon-tab.component";
 import { GeneralComponent } from "./components/general/general.component";
 
 import 'hammerjs';
@@ -48,6 +49,7 @@ import 'hammerjs';
     TextTabComponent,
     PointTabComponent,
     GeneralComponent,
+    PolygonTabComponent
   ],
   imports: [
     BrowserModule,

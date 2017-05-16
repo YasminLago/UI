@@ -7,26 +7,25 @@ import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'my-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.css'],
+  styleUrls: ['./slider.component.css']
+  // ,
+  // providers: [PreviewService]
 })
 
 export class SliderComponent {
 
-  @Input() textLabelSlider:string;
   @Input() attrName:string;
-  sliderValue:number;
+  sliderValue = 30;
   subscription: Subscription;
+  @Input() textLabelSlider:string;
 
-  constructor(private previewService:PreviewService) {
-    this.subscription = previewService.size$.subscribe(
-      size => {
-      size = this.sliderValue;
-    });
-  }
+  constructor(private previewService:PreviewService) {}
   
-   setSliderValue() {
+  setSliderValue(event: any) {
     this.previewService.setValue(this.attrName, this.sliderValue);
-    
+    console.log(this.attrName);
   }
-         
+
+  
+  
 }

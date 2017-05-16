@@ -2,12 +2,9 @@ import { Subject } from 'rxjs/Subject';
 
 export class PreviewAttr {
 
-
     constructor(){}
 
     //Sources
-    private anyProperty = new Subject<string>();
-
     private symbol = new Subject<string>();
     private type = new Subject<string>();
     private image = new Subject<string>();
@@ -18,10 +15,7 @@ export class PreviewAttr {
     private rotate = new Subject<number>();
     private color = new Subject<string>();
 
-
     //Streams
-    anyProperty$ = this.anyProperty.asObservable();
-
     symbol$ = this.symbol.asObservable();
     type$ = this.type.asObservable();
     image$ = this.image.asObservable();
@@ -33,14 +27,6 @@ export class PreviewAttr {
     color$ = this.color.asObservable();
 
 
-    getAnyProperty() {
-        return this.anyProperty;
-    }
-
-    setAnyProperty(anyProperty:any) {
-        this.anyProperty = anyProperty;
-    }
-
     getSymbol() {
         return this.symbol;
     }
@@ -48,11 +34,9 @@ export class PreviewAttr {
         this.symbol = symbol;
     }
 
-
     getType() {
         return this.type;
     }
-
     setType (type:any) {
         this.type = type;
     }
@@ -60,7 +44,6 @@ export class PreviewAttr {
     getImage() {
         return this.image;
     }
-
     setImage (image:any) {
         this.image = image;
     }
@@ -106,5 +89,4 @@ export class PreviewAttr {
     setColor (color:any) {
         this.color = color;
     }
-
 }

@@ -7,7 +7,8 @@ export class PreviewService {
 
     previewAttr = new PreviewAttr();
 
-    constructor() {}
+    private anyProperty = new Subject<any>();
+    anyProperty$ = this.anyProperty.asObservable();
 
     //Attributes
     //Sliders
@@ -29,47 +30,58 @@ export class PreviewService {
     public symbol_attr = "symbol";
     public type_attr = "type";
 
+    constructor() {}
+
     setSymbol(symbol:string) {
-        this.previewAttr.getSymbol().next(symbol);
+        this.previewAttr.setSymbol(symbol);
+        this.anyProperty.next(this.previewAttr);
     }
 
     setType(type:string) {
-        this.previewAttr.getType().next(type);
+        this.previewAttr.setType(type);
+        this.anyProperty.next(this.previewAttr);
     }
 
     setImage(image:string) {
-        this.previewAttr.getImage().next(image);
+        this.previewAttr.setImage(image);
+        this.anyProperty.next(this.previewAttr);
     }
 
     setOpacity(opacity:number) {
-        this.previewAttr.getOpacity().next(opacity);
+        this.previewAttr.setOpacity(opacity);
+        this.anyProperty.next(this.previewAttr);
     }
 
     setWidth(width:number) {
-        this.previewAttr.getWidth().next(width);
+        this.previewAttr.setWidth(width);
+        this.anyProperty.next(this.previewAttr);
     }
 
     setSize(size:number) {
-        this.previewAttr.getSize().next(size);
-        this.previewAttr.getAnyProperty().next(this.previewAttr);
+        this.previewAttr.setSize(size);
+        this.anyProperty.next(this.previewAttr);
     }
 
     setSeparation(separation:number) {
-        this.previewAttr.getSeparation().next(separation);
+        this.previewAttr.setSeparation(separation);
+        this.anyProperty.next(this.previewAttr);
     }
 
     setRotate(rotate:number) {
-        this.previewAttr.getRotate().next(rotate);
+        this.previewAttr.setRotate(rotate);
+        this.anyProperty.next(this.previewAttr);
     }
 
-    setColorButton(color:string) {
-        this.previewAttr.getColor().next(color);
+    setColor(color:string) {
+        this.previewAttr.setColor(color);
+        this.anyProperty.next(this.previewAttr);
     }
 
     setValue (attr:string, value:any) {
         switch (attr) {
             case this.size_attr: {
                 this.setSize(value);
+               // console.log('valor de size en el servicio ' + value);
                 break;
             }
 
@@ -99,7 +111,7 @@ export class PreviewService {
             }
 
             case this.color_attr: {
-                this.setColorButton(value);
+                this.setColor(value);
                 break;
             }
 

@@ -23,7 +23,7 @@
       <!-- *******************************************LINES TAB********************************************** -->
       <md-tab label="Líneas">
         <div class="shape-container">
-          <my-button></my-button>
+          <my-button textButton="Crear" [preview-comp]="previewComponent"></my-button>
           <br>
           <md-tab-group id="line-tabs">
             <md-tab label="Línea 1">
@@ -45,32 +45,16 @@
       <!-- *******************************************POLYGONS TAB********************************************** -->
       <md-tab label="Polígonos">
         <div class="shape-container">
-          <my-button></my-button>
+          <my-button textButton="Crear" [preview-comp]="previewComponent"></my-button>
           <br>
-          <my-general [gOpacitySlider]=false [gSizeSlider]=false></my-general>
-            <div class="border-tab">
-          <md-tab-group>
-            <md-tab label="Borde 1">
-            <border-style textLabelCheckBox="Borde 1" [check]=false [combo]=false [widthSlider]=false [opacitySlider]=false [separationSlider]=false [positionSlider]=false></border-style>
+          <md-tab-group id="polygon-tabs">
+            <md-tab label="Polígono">
+              <my-polygon-tab></my-polygon-tab>
             </md-tab>
-            <md-tab label="Borde 2">
-            <border-style textLabelCheckBox="Borde 2" [check]=false [combo]=false [widthSlider]=false [opacitySlider]=false [separationSlider]=false [positionSlider]=false></border-style>
-            </md-tab>
-             <md-tab label="Borde 3">
-            <border-style textLabelCheckBox="Borde 3" [check]=false [combo]=false [widthSlider]=false [opacitySlider]=false [separationSlider]=false [positionSlider]=false></border-style>
+            <md-tab label="Textos">
+              <my-text-tab></my-text-tab>
             </md-tab>
           </md-tab-group>
-            </div>
-            <div class="fill-tab">
-          <md-tab-group>
-            <md-tab label="Fill">
-              <border-style textLabelCheckBox="Fill" [check]=false [combo]=false [image]=false [sizeSlider]=false [opacitySlider]=false [rotate]=false></border-style>
-              </md-tab>
-              <md-tab label="Borde Fill">
-              <border-style textLabelCheckBox="Borde Fill" [check]=false [widthSlider]=false [opacitySlider]=false [separationSlider]=false></border-style>
-            </md-tab>
-          </md-tab-group>
-            </div>
         </div>
       </md-tab>
       <!-- *******************************************END POLYGONS TAB********************************************** -->
