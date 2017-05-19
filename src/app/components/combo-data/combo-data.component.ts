@@ -9,12 +9,19 @@ import { Shape } from "../../combo";
 
 })
 export class ComboDataComponent {
-  @Input() textLabelCombo:string;  
-  @Input() placeHolder:string;
-  @Input() attrName:string;
+  @Input('text-label-combo') textLabelCombo:string;  
+  @Input('place-holder') placeHolder:string;
+  @Input('attr-name') attrName:string;
 
   selectedShape: string;
-  shapes: Shape[] = [];
+  shapes: any = [ 
+    {value: 'circle', viewValue: 'Círculo'},
+    {value: 'square', viewValue: 'Cuadradro'},
+    {value: 'triangle', viewValue: 'Triángulo'},
+    {value: 'star', viewValue: 'Estrella'},
+    {value: 'cross', viewValue: 'Cruz'},
+    {value: 'x', viewValue: 'X'}
+  ];
   
 
 }

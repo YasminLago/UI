@@ -81,7 +81,6 @@ export class PreviewService {
         switch (attr) {
             case this.size_attr: {
                 this.setSize(value);
-               // console.log('valor de size en el servicio ' + value);
                 break;
             }
 

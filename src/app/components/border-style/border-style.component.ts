@@ -9,21 +9,20 @@ import { Component, Input } from '@angular/core';
 
 export class BorderStyleComponent {
   
-  @Input() textLbl:string;
-  @Input() textLabelCheckBox:string;
+  @Input('text-label') textLbl:string;
 
-  @Input() lbl:boolean = true;
-  @Input() check:boolean = true;
-  @Input() combo:boolean = true; 
-  @Input() widthSlider:boolean = true;
-  @Input() opacitySlider:boolean = true;
-  @Input() separationSlider:boolean = true;
-  @Input() positionSlider:boolean = true;
-  @Input() distanceSlider:boolean = true;
-  @Input() sizeSlider:boolean = true;
-  @Input() colorButton:boolean = false;
-  @Input() image:boolean = true;
-  @Input() rotate:boolean = true;
+  @Input('lbl') lbl:boolean = true;
+  @Input('check') check:boolean = true;
+  @Input('combo') combo:boolean = true; 
+  @Input('width-slider') widthSlider:boolean = true;
+  @Input('opacity-slider') opacitySlider:boolean = true;
+  @Input('separation-slider') separationSlider:boolean = true;
+  @Input('position-slider') positionSlider:boolean = true;
+  @Input('distance-slider') distanceSlider:boolean = true;
+  @Input('size-slider') sizeSlider:boolean = true;
+  @Input('color-button') colorButton:boolean = false;
+  @Input('image') image:boolean = true;
+  @Input('rotate') rotate:boolean = true;
 
   constructor() { }
 

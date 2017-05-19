@@ -3,6 +3,8 @@ import { Component, Input } from '@angular/core';
 import { PreviewService } from "../../services/PreviewService";
 import { Subscription } from 'rxjs/Subscription';
 
+import { Attribute } from "../../attr";
+
 
 @Component({
   selector: 'my-slider',
@@ -14,18 +16,17 @@ import { Subscription } from 'rxjs/Subscription';
 
 export class SliderComponent {
 
-  @Input() attrName:string;
-  sliderValue = 30;
-  subscription: Subscription;
-  @Input() textLabelSlider:string;
+  @Input('text-label-slider') textLabelSlider:string;
+  //@Input() attrNumber:number;
+  @Input('attr-name') attrName:string;
+  //attributes = new Attribute();
+  @Input('value') sliderValue;
 
   constructor(private previewService:PreviewService) {}
-  
-  setSliderValue(event: any) {
-    this.previewService.setValue(this.attrName, this.sliderValue);
-    console.log(this.attrName);
-  }
 
-  
-  
+  setSliderValue(event: any) {
+    //this.attributes.setAttrs(this.attrName)
+    this.previewService.setValue(this.attrName, this.sliderValue);
+    console.log("text attr: " + this.attrName);
+  }
 }

@@ -2,52 +2,53 @@
   <div class="box1">
     <my-combo-data 
                   [hidden]="gSymbolCombo" 
-                  [attrName]="symbol"
-                  textLabelCombo="Símbolo" 
-                  placeHolder = "Forma">
+                  attr-name="symbol"
+                  text-label-combo="Símbolo" 
+                  place-holder = "Forma">
     </my-combo-data>
     <my-combo-data 
                   [hidden]="gTypeCombo" 
-                  [attrName]="type" 
-                  textLabelCombo="Tipo de línea" 
-                  placeHolder="Tipo">
+                  attr-name="type" 
+                  text-label-combo="Tipo de línea" 
+                  place-holder="Tipo">
     </my-combo-data>
     <my-image 
               [hidden]="gImage" 
-              [attrName]="externalImage">
+              attr-name="externalImage">
     </my-image>
     <my-slider 
               [hidden]="gOpacitySlider" 
-              [attrName]="opacity" 
-              textLabelSlider="Transparentar">
+              attr-name="opacity" 
+              text-label-slider="Transparentar">
     </my-slider>
   </div>
   <div class="box2">
     <my-slider 
               [hidden]="gWidthSlider" 
-              [attrName]="width" 
-              textLabelSlider="Ancho">
+              attr-name="width" 
+              text-label-slider="Ancho">
     </my-slider>
     <my-slider 
                [hidden]="gSizeSlider" 
-               [attrName]="size" 
-               textLabelSlider="Tamaño">
+               attr-name= "size"
+               text-label-slider="Tamaño"
+               >
     </my-slider>
     <my-rotate 
               [hidden]="gRotate" 
-              [attrName]="rotate" >
+              attr-name="rotate" >
     </my-rotate>
     <my-slider 
               [hidden]="gSeparationSlider" 
-              [attrName]="separation"  
-              textLabelSlider="Separación" 
+              attr-name="separation"  
+              text-label-slider="Separación" 
               title="Separación entre líneas">
     </my-slider>
     <br>
     <my-button 
                id="general-color-button" 
-               [attrName]="color" 
-               textButton="Color">
+               attr-name="color" 
+               text-button="Color">
     </my-button>
   </div>
 </div>

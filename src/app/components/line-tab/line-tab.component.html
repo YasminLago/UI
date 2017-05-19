@@ -1,15 +1,44 @@
 <div class="content-tab-line">
   <br>
-  <my-checkbox textLabelCheckBox= {{checkText}}></my-checkbox>
-  <my-general [gTypeCombo]=false [gOpacitySlider]=false [gWidthSlider]=false [gSeparationSlider]=false></my-general>
-  <border-style textLabelCheckBox="Borde" [check]=false [combo]=false [widthSlider]=false [opacitySlider]=false [separationSlider]=false [positionSlider]=false></border-style>
+  <my-checkbox 
+              text-label-checkbox= {{checkText}}>
+  </my-checkbox>
+  <my-general 
+              [g-type-combo]=false 
+              [g-opacity-slider]=false 
+              [g-width-slider]=false 
+              [g-separation-slider]=false>
+  </my-general>
+  <border-style 
+              text-label="Borde" 
+              [check]=false 
+              [combo]=false 
+              [width-slider]=false 
+              [opacity-slider]=false 
+              [separation-slider]=false 
+              [position-slider]=false>
+  </border-style>
   <div id="sym-tabs">
     <md-tab-group>
         <md-tab label="Símbolo">
-          <border-style textLbl="Símbolo de línea" [lbl]=false [combo]=false [image]=false [sizeSlider]=false [opacitySlider]=false [rotate]=false [distanceSlider]=false></border-style>
+          <border-style 
+                        text-label="Símbolo de línea" 
+                        [lbl]=false 
+                        [combo]=false 
+                        [image]=false 
+                        [size-slider]=false 
+                        [opacity-slider]=false 
+                        [rotate]=false 
+                        [distance-slider]=false>
+          </border-style>
         </md-tab>
         <md-tab label="Borde">
-          <border-style textLabelCheckBox="Borde" [check]=false [widthSlider]=false [opacitySlider]=false></border-style>
+          <border-style 
+                        text-label="Borde" 
+                        [check]=false 
+                        [width-slider]=false 
+                        [opacity-slider]=false>
+          </border-style>
         </md-tab>
       </md-tab-group>
   </div>

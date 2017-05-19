@@ -6,8 +6,7 @@
     <md-select placeholder= {{placeHolder}} 
                [(ngModel)]="selectedShape" 
                name="shape" 
-               id="combo-data-select" 
-               >
+               id="combo-data-select">
       <md-option *ngFor="let shape of shapes" [value]="shape.value">
         {{ shape.viewValue }}
       </md-option>

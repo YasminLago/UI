@@ -2,20 +2,63 @@
       <div id="lbl-text" [hidden]="lbl">
             <label>{{textLbl}}</label>
       </div>
-      <my-checkbox [hidden]="check" textLabelCheckBox= {{textLabelCheckBox}}></my-checkbox>
+      <my-checkbox 
+                  [hidden]="check" 
+                  text-label-checkbox= {{textLbl}}>
+      </my-checkbox>
       <div class="box1">
-            <my-combo-data [hidden]="combo" textLabelCombo="Tipo"></my-combo-data>
-            <my-image [hidden]="image"></my-image>
-            <my-slider [hidden]="widthSlider" textLabelSlider="Ancho"></my-slider>
-            <my-slider [hidden]="opacitySlider" textLabelSlider="Transparentar"></my-slider>
+            <my-combo-data 
+                        [hidden]="combo" 
+                        text-label-combo="Tipo"
+                        attr-name= "type"
+                        place-holder="Tipo">
+            </my-combo-data>
+            <my-image 
+                        [hidden]="image"
+                        attr-name= "externalImage">
+            </my-image>
+            <my-slider 
+                        [hidden]="widthSlider" 
+                        attr-name= "width"
+                        text-label-slider="Ancho">
+            </my-slider>
+            <my-slider 
+                        [hidden]="opacitySlider" 
+                        attr-name= "opacity"
+                        text-label-slider="Transparentar">
+            </my-slider>
       </div>
       <div class="box2">
-            <my-slider [hidden]="separationSlider" textLabelSlider="Separación"></my-slider>
-            <my-slider [hidden]="sizeSlider" textLabelSlider="Tamaño"></my-slider>
-            <my-slider [hidden]="distanceSlider" textLabelSlider="Distancia"></my-slider>
-            <my-slider [hidden]="positionSlider" textLabelSlider="Posición"></my-slider>
-            <my-rotate [hidden]="rotate"></my-rotate>
+            <my-slider 
+                        [hidden]="separationSlider" 
+                        attr-name= "separation"
+                        text-label-slider="Separación">
+            </my-slider>
+            <my-slider 
+                        [hidden]="sizeSlider" 
+                        attr-name= "size"
+                        text-label-slider="Tamaño">
+            </my-slider>
+            <my-slider 
+                        [hidden]="distanceSlider" 
+                        attr-name= "distance"
+                        text-label-slider="Distancia">
+            </my-slider>
+            <my-slider 
+                        [hidden]="positionSlider" 
+                        attr-name= "position"
+                        text-label-slider="Posición">
+            </my-slider>
+            <my-rotate 
+                        [hidden]="rotate"
+                        attr-name= "rotate">
+            </my-rotate>
             <br>
-            <my-button [hidden]="colorButton" id="border-color-button" textButton="Color"></my-button>
+            <my-button 
+                        [hidden]="colorButton" 
+                        attr-name= "color"
+                        id="border-color-button" 
+                        text-button="Color">
+            </my-button>
       </div>
 </div>

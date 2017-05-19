@@ -3,11 +3,12 @@
         <label>{{textLabelSlider}}:</label>
     </div>
     <div class="slider-element">
-        <md-slider (input)="setSliderValue($event)"
-                   [(ngModel)]="sliderValue" 
+        <md-slider (click)="setSliderValue($event)"
+                   [(ngModel)]="sliderValue"
                    step="2" 
                    min="0" 
-                   max="60">
+                   max="60"
+                   [disabled]=false>
         </md-slider>
     </div>
 </div>

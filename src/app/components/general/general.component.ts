@@ -8,17 +8,18 @@ import { Component, Input } from '@angular/core';
 })
 export class GeneralComponent {
 
-  @Input() gSymbolCombo:boolean = true;
-  @Input() gTypeCombo:boolean = true;
-  @Input() gWidthSlider:boolean = true;
-  @Input() gOpacitySlider:boolean = true;
-  @Input() gSeparationSlider:boolean = true;
-  @Input() gPositionSlider:boolean = true;
-  @Input() gDistanceSlider:boolean = true;
-  @Input() gSizeSlider:boolean = true;
-  @Input() gRotate:boolean = true;
-  @Input() gImage:boolean = true;
+  @Input('g-symbol-combo') gSymbolCombo:boolean = true;
+  @Input('g-type-combo') gTypeCombo:boolean = true;
+  @Input('g-width-slider') gWidthSlider:boolean = true;
+  @Input('g-opacity-slider') gOpacitySlider:boolean = true;
+  @Input('g-separation-slider') gSeparationSlider:boolean = true;
+  @Input('g-position-slider') gPositionSlider:boolean = true;
+  @Input('g-distance-slider') gDistanceSlider:boolean = true;
+  @Input('g-size-slider') gSizeSlider:boolean = true;
+  @Input('g-rotate') gRotate:boolean = true;
+  @Input('g-image') gImage:boolean = true;
 
   constructor() { }
+
 
 }

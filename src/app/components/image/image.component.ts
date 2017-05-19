@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ImageComponent implements OnInit {
 
-  @Input() attrName:string;
+  @Input('attr-name') attrName:string;
 
   constructor() { }
 

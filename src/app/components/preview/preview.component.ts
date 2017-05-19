@@ -24,7 +24,7 @@ export class PreviewComponent implements AfterViewInit{
 
   sizePoint:any;
   widthStroke:any = 5;
-  colorFill:string = "#1f618d";
+  colorFill:any = "#1f618d";
   colorStroke:string = "#00000";
 
   constructor(private previewService:PreviewService) {
@@ -65,6 +65,7 @@ export class PreviewComponent implements AfterViewInit{
   reDrawPoint(previewAttr?:PreviewAttr) {
     this.clearShape();
     this.sizePoint = previewAttr.getSize();
+    this.colorFill = previewAttr.getOpacity();
     this.ctx.beginPath();
     this.ctx.arc(150, 140, this.sizePoint, 0, 2*Math.PI, true);
 

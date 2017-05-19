@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class LineTabComponent {
 
-  @Input() checkText:string;
+  @Input('check-text') checkText:string;
 
 }
