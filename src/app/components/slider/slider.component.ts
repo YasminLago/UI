@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { Attribute } from "../../attr";
 
+import { GeneralComponent } from "../general/general.component";
+
 
 @Component({
   selector: 'my-slider',
@@ -21,6 +23,10 @@ export class SliderComponent {
   @Input('attr-name') attrName:string;
   //attributes = new Attribute();
   @Input('value') sliderValue;
+  //@Input ('active') active:boolean;
+
+
+  general: GeneralComponent;
 
   constructor(private previewService:PreviewService) {}
 
@@ -28,5 +34,9 @@ export class SliderComponent {
     //this.attributes.setAttrs(this.attrName)
     this.previewService.setValue(this.attrName, this.sliderValue);
     console.log("text attr: " + this.attrName);
+  }
+
+  active(active:boolean) {
+    this.general.setOpacity(active);
   }
 }

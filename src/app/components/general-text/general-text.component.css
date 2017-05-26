@@ -1,0 +1,78 @@
+.container {
+    border:  #000 1px solid;
+   /* margin-left: 25px;*/
+    width: 550px;
+    height: auto;
+    padding: 8px;
+    padding-bottom: 5px;
+    float: left;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px; 
+}
+
+    .box1 {
+        /*border:  #1f618d 1px solid;*/
+        float: right;
+        width: 550px;
+    }
+        .box1-1 {
+            /*border:   #84381e 1px solid;*/
+            float: left;
+            margin-right: 15px;
+        }  
+            #font-style {
+                float: right;
+                margin-right: 40px;
+            }
+
+        .box1-2 {
+            /*border:  #1f618d 1px solid;*/
+            float: right;
+            height: 80px;
+            width: 230px;
+        }
+            #general-color-button {
+                float: right;
+                margin-top: 43px;
+            }
+
+    .box2 {
+      /*  border:  #1f618d 1px solid;*/
+        float: right;
+        width: 550px;
+        margin-top: 10px;
+    }
+        .box2-1 {
+            /*border:  #1f618d 1px solid;*/
+            float: left;
+            
+        }
+        .box2-2 {
+            /*border:  #1f618d 1px solid;*/
+            float: right;
+            width: 250px;
+            margin-top: 15px;
+        }
+        
+    .box3 {
+        /*border:  #d4ac0d 1px solid;*/
+        float: right;
+        width: 550px;
+        margin-top: 10px;
+    }
+        .box3-1 {
+            /*border:  #1f618d 1px solid;*/
+            float: left;
+            width: 280px;
+        }
+
+        .box3-2 {
+            /*border:  #1f618d 1px solid;*/
+            float: left;
+            width: 269px;
+        }   
+            #general-halo-color-button {
+                float: right;
+                margin-top: 60px;
+            }

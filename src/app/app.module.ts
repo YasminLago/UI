@@ -11,7 +11,9 @@ import {MdCheckboxModule,
         MdTabsModule,
         MdSelectModule,
         MdOptionModule,
-        MdIconModule} from '@angular/material';
+        MdIconModule,
+        MdButtonToggleModule,
+        MdInputModule } from '@angular/material';
 
 import { PreviewService } from "./services/PreviewService";
 
@@ -23,13 +25,17 @@ import { ComboDataComponent} from "./components/combo-data/combo-data.component"
 import { ImageComponent } from "./components/image/image.component";
 import { PreviewComponent } from "./components/preview/preview.component";
 import { SaveCancelComponent } from "./components/save-cancel/save-cancel.component";
-import { ButtonComponent } from "./components/button/button.component";
+import { CreateButtonComponent } from "./components/create-button/create-button.component";
+import { ColorButtonComponent } from "./components/color-button/color-button.component";
 import { CheckboxComponent } from "./components/checkbox/checkbox.component";
 import { LineTabComponent } from "./components/line-tab/line-tab.component";
 import { TextTabComponent } from "./components/text-tab/text-tab.component";
 import { PointTabComponent } from "./components/point-tab/point-tab.component";
 import { PolygonTabComponent } from "./components/polygon-tab/polygon-tab.component";
 import { GeneralComponent } from "./components/general/general.component";
+import { GeneralTextComponent } from "./components/general-text/general-text.component";
+
+//import {ColorPickerModule} from 'angular2-color-picker';
 
 import 'hammerjs';
 
@@ -43,13 +49,15 @@ import 'hammerjs';
     ImageComponent,
     PreviewComponent,
     SaveCancelComponent,
-    ButtonComponent,
+    CreateButtonComponent,
+    ColorButtonComponent,
     CheckboxComponent,
     LineTabComponent,
     TextTabComponent,
     PointTabComponent,
     GeneralComponent,
-    PolygonTabComponent
+    PolygonTabComponent,
+    GeneralTextComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +71,10 @@ import 'hammerjs';
     MdTabsModule,
     MdSelectModule,
     MdOptionModule,
-    MdIconModule
+    MdIconModule,
+    MdButtonToggleModule,
+    MdInputModule
+   // ColorPickerModule
   ],
   providers: [PreviewService],
   bootstrap: [AppComponent]

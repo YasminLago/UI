@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+import { PreviewService } from "../../services/PreviewService";
 
 @Component({
   selector: 'my-rotate',
@@ -6,13 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./rotate.component.css',
               '../../styles/buttonStyle.css']
 })
-export class RotateComponent implements OnInit {
+export class RotateComponent {
 
   @Input('attr-name') attrName:string;
+  @Input('rotate-value')rotateValue:number;
   
-  constructor() { }
+  constructor(private previewService:PreviewService) { }
 
-  ngOnInit() {
+  setRotateValue() {
+    this.previewService.setValue(this.attrName, this.rotateValue);
+    console.log("text attr: " + this.attrName);
   }
 
 }

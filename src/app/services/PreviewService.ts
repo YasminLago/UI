@@ -30,11 +30,21 @@ export class PreviewService {
     public symbol_attr = "symbol";
     public type_attr = "type";
 
+    //Text
+    public displacement_attr = "displacement";
+    public anchor_attr = "anchor";
+    public perpOff_attr = "perp_off";
+    public fontText_attr = "font_text";
+    public fontStyle_attr = "font_style";
+    public fontWeight_attr = "font_weight";
+
+
     constructor() {}
 
     setSymbol(symbol:string) {
         this.previewAttr.setSymbol(symbol);
         this.anyProperty.next(this.previewAttr);
+        console.log("Symbol en preview Service " + symbol);
     }
 
     setType(type:string) {
@@ -44,6 +54,11 @@ export class PreviewService {
 
     setImage(image:string) {
         this.previewAttr.setImage(image);
+        this.anyProperty.next(this.previewAttr);
+    }
+
+    setExternalImage(externalImage:boolean) {
+        this.previewAttr.setExternalImage(externalImage);
         this.anyProperty.next(this.previewAttr);
     }
 
@@ -75,7 +90,45 @@ export class PreviewService {
     setColor(color:string) {
         this.previewAttr.setColor(color);
         this.anyProperty.next(this.previewAttr);
+        console.log("Color en preview Service " + color);
     }
+
+
+    //Text
+
+    setDisplacement (displacement:number) {
+        this.previewAttr.setSymbol(displacement);
+        this.anyProperty.next(this.previewAttr);
+    }
+
+    setAnchor (anchor:number) {
+        this.previewAttr.setSymbol(anchor);
+        this.anyProperty.next(this.previewAttr);
+    }
+
+    setPerpOff(perpOff:number) {
+        this.previewAttr.setSymbol(perpOff);
+        this.anyProperty.next(this.previewAttr);
+    }
+    
+
+    setFontText (fontText:string) {
+        this.previewAttr.setSymbol(fontText);
+        this.anyProperty.next(this.previewAttr);;
+    }
+    
+
+    setFontStyle (fontStyle:string) {
+        this.previewAttr.setSymbol(fontStyle);
+        this.anyProperty.next(this.previewAttr);
+    }
+    
+
+    setFontWeight (fontWeight:string) {
+        this.previewAttr.setSymbol(fontWeight);
+        this.anyProperty.next(this.previewAttr);
+    }
+
 
     setValue (attr:string, value:any) {
         switch (attr) {
@@ -121,6 +174,36 @@ export class PreviewService {
 
             case this.type_attr: {
                 this.setType(value);
+                break;
+            }
+
+            case this.displacement_attr: {
+                this.setDisplacement(value);
+                break;
+            }
+
+            case this.anchor_attr: {
+                this.setAnchor(value);
+                break;
+            }
+
+            case this.fontStyle_attr: {
+                this.setFontStyle(value);
+                break;
+            }
+
+            case this.fontText_attr: {
+                this.setFontText(value);
+                break;
+            }
+
+            case this.fontWeight_attr: {
+                this.setFontWeight(value);
+                break;
+            }
+
+            case this.perpOff_attr: {
+                this.setPerpOff(value);
                 break;
             }
         }

@@ -3,6 +3,12 @@
         <div id="shapePreview" [hidden]="!canvas"> 
            <canvas #myCanvas id="shape"></canvas>
         </div>
+        <div id="imagePreview">
+            <img [src]="externalImage" [hidden]="!image">
+        </div>
     </div>
     <my-save-cancel-buttons></my-save-cancel-buttons>
 </div>
+
+
+<!--http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/014/0014014674.jpg-->

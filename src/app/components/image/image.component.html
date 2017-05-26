@@ -2,7 +2,13 @@
   <div class="imglbl">
     <label class="url-image-component" id="imagelbl">Imagen: </label>
   </div>
-  <div class="image-button">
-    <my-button id="url-image-button" text-button="URL"></my-button>
+  <div class="image">
+    <md-input-container>
+      <input mdInput type="url" placeholder="URL" id="external-image" [(ngModel)]="externalImage">
+    </md-input-container>
+    <div class="buttonURL">
+      <md-icon (click)="createImage()">check</md-icon>
+      <md-icon (click)="dropImage()">clear</md-icon>
+    </div>
   </div>
 </div>

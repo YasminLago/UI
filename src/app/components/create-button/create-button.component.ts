@@ -1,26 +1,26 @@
-import { Component, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { PreviewComponent } from "../preview/preview.component";
+import { PreviewService } from "../../services/PreviewService";
+
 
 @Component({
-  selector: 'my-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.css',
+  selector: 'my-create-button',
+  templateUrl: './create-button.component.html',
+  styleUrls: ['./create-button.component.css',
               '../../styles/buttonStyle.css'],
   inputs: [
     'previewComp : preview-comp', //preview#previewComponent --[preview-comp]=previewComponent
   ]
 })
-export class ButtonComponent {
+export class CreateButtonComponent {
 
   @Input('attr-name') attrName:string;
-  @Input('text-button') textButton : string;
   previewComp: PreviewComponent;
 
-  constructor() { }
+  constructor(private previewService:PreviewService) { }
 
   public createShape() {
     this.previewComp.setCanvas(true);
   }
-
 }

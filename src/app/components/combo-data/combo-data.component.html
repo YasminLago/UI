@@ -3,7 +3,8 @@
     <label>{{textLabelCombo}}: </label> 
   </div>
   <div class="combo-select">
-    <md-select placeholder= {{placeHolder}} 
+    <md-select (click)="selectedComboShape()"
+               placeholder= {{placeHolder}} 
                [(ngModel)]="selectedShape" 
                name="shape" 
                id="combo-data-select">

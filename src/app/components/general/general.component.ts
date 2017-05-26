@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { PointTabComponent } from "../point-tab/point-tab.component";
+
 @Component({
   selector: 'my-general',
   templateUrl: './general.component.html',
@@ -19,7 +21,12 @@ export class GeneralComponent {
   @Input('g-rotate') gRotate:boolean = true;
   @Input('g-image') gImage:boolean = true;
 
+  pointTab:PointTabComponent;
+
   constructor() { }
 
+  setOpacity(value:boolean){
+    this.pointTab.activeOpacity(value);
+  }
 
 }

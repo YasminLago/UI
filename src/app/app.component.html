@@ -5,14 +5,15 @@
       <!-- *******************************************POINTS TAB********************************************** -->
       <md-tab label="Puntos">
         <div class="shape-container">
-          <my-button text-button="Crear" [preview-comp]="previewComponent"></my-button>
+          <my-create-button text-button="Crear" [preview-comp]="previewComponent"></my-create-button>
           <br>
           <md-tab-group id="point-tab">
             <md-tab label="Punto">
               <br>
-              <my-point-tab  ></my-point-tab>
+              <my-point-tab></my-point-tab>
           </md-tab>
           <md-tab label="Textos">
+            <br>
             <my-text-tab></my-text-tab>
           </md-tab>
         </md-tab-group>
@@ -23,7 +24,7 @@
       <!-- *******************************************LINES TAB********************************************** -->
       <md-tab label="Líneas">
         <div class="shape-container">
-          <my-button text-button="Crear" [preview-comp]="previewComponent"></my-button>
+          <my-create-button text-button="Crear" [preview-comp]="previewComponent"></my-create-button>
           <br>
           <md-tab-group id="line-tabs">
             <md-tab label="Línea 1">
@@ -45,7 +46,7 @@
       <!-- *******************************************POLYGONS TAB********************************************** -->
       <md-tab label="Polígonos">
         <div class="shape-container">
-          <my-button text-button="Crear" [preview-comp]="previewComponent"></my-button>
+          <my-create-button text-button="Crear" [preview-comp]="previewComponent"></my-create-button>
           <br>
           <md-tab-group id="polygon-tabs">
             <md-tab label="Polígono">

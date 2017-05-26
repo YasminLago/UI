@@ -1,0 +1,148 @@
+<div class="container">
+  <div class="box1">
+
+    <my-checkbox text-label-checkbox="Texto Punto"></my-checkbox>
+    <div class="box1-1">
+      <my-combo-data 
+                    [hidden]="gtFontFamilyCombo" 
+                    attr-name="font"
+                    text-label-combo="Fuente">
+      </my-combo-data>
+      <md-button-toggle-group multiple id="font-style">
+        <md-button-toggle value="bold">
+          <strong>B</strong>
+        </md-button-toggle>
+        <md-button-toggle value="italic" id="font-style-button">
+          <i>I</i>
+        </md-button-toggle>
+      </md-button-toggle-group>
+    </div>
+    <div class="box1-2">
+      <my-color-button 
+               id="general-color-button" 
+               attr-name="color">
+      </my-color-button>
+    </div>
+  </div>
+  <div class="box2">
+    
+    <div class="box2-1">
+      <label><strong>Posición</strong></label>
+      <my-rotate attr-name="rotate"></my-rotate>
+      <my-slider 
+               [hidden]="gtPerpOffSlider" 
+               attr-name= "perp_off"
+               text-label-slider="PerpOffset"
+               >
+      </my-slider>
+      <my-slider 
+               [hidden]="gtDisplacementSlider" 
+               attr-name= "displacement"
+               text-label-slider="Desplazamiento"
+               >
+      </my-slider>
+    </div>
+    <div class="box2-2">
+        <my-slider 
+               [hidden]="gtAnchorSlider" 
+               attr-name= "anchor"
+               text-label-slider="AnchorPoint"
+               >
+        </my-slider>
+    </div>
+  </div>
+  <div class="box3">
+    
+    <div class="box3-1">
+      <label><strong>Halo</strong></label>
+      <my-slider 
+               [hidden]="gtOpacitySlider" 
+               attr-name= "opacity"
+               text-label-slider="Transparencia"
+               >
+      </my-slider>
+      <my-slider 
+                [hidden]="gtSizeSlider" 
+                attr-name= "size"
+                text-label-slider="Tamaño"
+                >
+      </my-slider>
+    </div>
+    <div class="box3-2">
+      <my-color-button 
+                id="general-halo-color-button" 
+                attr-name="color">
+      </my-color-button>
+    </div>
+  </div>
+</div>
+
+
+<!--<div class="container">
+  <div class="box1">
+    <my-checkbox text-label-checkbox="Texto Punto"></my-checkbox>
+    <div class="point-text">
+      <div class="box1.1">
+        <md-button-toggle-group multiple id="font-style">
+          <md-button-toggle value="bold">
+            <strong>B</strong>
+          </md-button-toggle>
+          <md-button-toggle value="italic" id="font-style-button">
+            <i>I</i>
+          </md-button-toggle>
+        </md-button-toggle-group>
+
+      <my-combo-data 
+                    [hidden]="gtFontFamilyCombo" 
+                    attr-name="font"
+                    text-label-combo="Fuente">
+      </my-combo-data>
+      </div>
+      <div class="box1.2">
+        <my-color-button 
+               id="general-color-button" 
+               attr-name="color">
+        </my-color-button>
+      </div>
+    </div>
+    <div class="box2">
+
+    <label><strong>Posición</strong></label>
+    <br>
+    <my-rotate></my-rotate>
+    <my-slider 
+               [hidden]="gtSizeSlider" 
+               attr-name= "size"
+               text-label-slider="Desplazamiento"
+               active=false>
+    </my-slider>
+    </div>
+    <br>
+    <label><strong>Halo</strong></label>
+
+    <my-slider 
+               [hidden]="gtOpacitySlider" 
+               attr-name= "opacity"
+               text-label-slider="Transparencia"
+               active=false>
+    </my-slider>
+   
+
+
+  </div>
+  <div class="box3">
+    <my-slider 
+               [hidden]="gtSizeSlider" 
+               attr-name= "size"
+               text-label-slider="Tamaño"
+               active=false>
+    </my-slider>
+    
+
+     <my-color-button 
+               id="general-halo-color-button" 
+               attr-name="color">
+    </my-color-button>
+    
+  </div>
+</div>-->

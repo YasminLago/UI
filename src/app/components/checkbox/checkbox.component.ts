@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 export class CheckboxComponent {
 
   @Input('text-label-checkbox') textLabelCheckBox : string;
-  @Input('check') check = false;
+  @Input('check') check:boolean = false;
 
 }

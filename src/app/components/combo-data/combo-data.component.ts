@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 
 import { Shape } from "../../combo";
 
+import { PreviewService } from "../../services/PreviewService";
+
 @Component({
   selector: 'my-combo-data',
   templateUrl: './combo-data.component.html',
@@ -13,7 +15,6 @@ export class ComboDataComponent {
   @Input('place-holder') placeHolder:string;
   @Input('attr-name') attrName:string;
 
-  selectedShape: string;
   shapes: any = [ 
     {value: 'circle', viewValue: 'Círculo'},
     {value: 'square', viewValue: 'Cuadradro'},
@@ -22,6 +23,15 @@ export class ComboDataComponent {
     {value: 'cross', viewValue: 'Cruz'},
     {value: 'x', viewValue: 'X'}
   ];
+  selectedShape: string ;
+
+  constructor(private previewService:PreviewService) { }
+
+  selectedComboShape() {
+    this.previewService.setValue(this.attrName,this.selectedShape);
+    console.log(this.selectedShape);
+    console.log(this.attrName);
+  }
   
 
 }

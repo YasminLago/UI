@@ -3,20 +3,20 @@
     <my-combo-data 
                   [hidden]="gSymbolCombo" 
                   attr-name="symbol"
-                  text-label-combo="Símbolo" 
-                  place-holder = "Forma">
+                  text-label-combo="Símbolo">
     </my-combo-data>
     <my-combo-data 
                   [hidden]="gTypeCombo" 
                   attr-name="type" 
-                  text-label-combo="Tipo de línea" 
-                  place-holder="Tipo">
+                  text-label-combo="Tipo de línea">
     </my-combo-data>
     <my-image 
+              [active-opacity]="opacityActive"
               [hidden]="gImage" 
-              attr-name="externalImage">
+              attr-name="external_image">
     </my-image>
     <my-slider 
+              #opacityActive
               [hidden]="gOpacitySlider" 
               attr-name="opacity" 
               text-label-slider="Transparentar">
@@ -26,13 +26,14 @@
     <my-slider 
               [hidden]="gWidthSlider" 
               attr-name="width" 
-              text-label-slider="Ancho">
+              text-label-slider="Ancho"
+              active=false>
     </my-slider>
     <my-slider 
                [hidden]="gSizeSlider" 
                attr-name= "size"
                text-label-slider="Tamaño"
-               >
+               active=false>
     </my-slider>
     <my-rotate 
               [hidden]="gRotate" 
@@ -42,13 +43,13 @@
               [hidden]="gSeparationSlider" 
               attr-name="separation"  
               text-label-slider="Separación" 
-              title="Separación entre líneas">
+              title="Separación entre líneas"
+              active=false>
     </my-slider>
     <br>
-    <my-button 
+    <my-color-button 
                id="general-color-button" 
-               attr-name="color" 
-               text-button="Color">
-    </my-button>
+               attr-name="color">
+    </my-color-button>
   </div>
 </div>

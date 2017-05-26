@@ -8,6 +8,7 @@ export class PreviewAttr {
     private symbol = new Subject<string>();
     private type = new Subject<string>();
     private image = new Subject<string>();
+    private externalImage = new Subject<boolean>();
     private opacity = new Subject<number>();
     private width = new Subject<number>();
     private size = new Subject<number>();
@@ -15,16 +16,35 @@ export class PreviewAttr {
     private rotate = new Subject<number>();
     private color = new Subject<string>();
 
+    //text
+    private displacement = new Subject<string>();
+    private anchor = new Subject<string>();
+    private perpOff = new Subject<string>();
+    private fontText = new Subject<string>();
+    private fontStyle = new Subject<string>();
+    private fontWeight = new Subject<string>();
+
+
     //Streams
     symbol$ = this.symbol.asObservable();
     type$ = this.type.asObservable();
     image$ = this.image.asObservable();
+    externalImage$ = this.externalImage.asObservable();
     opacity$ = this.opacity.asObservable();
     width$ = this.width.asObservable();
     size$ = this.size.asObservable();
     separation$ = this.separation.asObservable();
     rotate$ = this.rotate.asObservable();
     color$ = this.color.asObservable();
+
+
+    //text
+    displacement$ = this.displacement.asObservable();
+    anchor$ = this.anchor.asObservable();
+    perpOff$ = this.perpOff.asObservable();
+    fontText$ = this.fontText.asObservable();
+    fontStyle$ = this.fontStyle.asObservable();
+    fontWeight$ = this.fontWeight.asObservable();
 
 
     getSymbol() {
@@ -46,6 +66,13 @@ export class PreviewAttr {
     }
     setImage (image:any) {
         this.image = image;
+    }
+
+    getExternalImage() {
+        return this.externalImage;
+    }
+    setExternalImage (externalImage:any) {
+        this.externalImage = externalImage;
     }
 
     getOpacity() {
@@ -89,4 +116,47 @@ export class PreviewAttr {
     setColor (color:any) {
         this.color = color;
     }
+
+    //text
+
+    getDisplacement() {
+        return this.displacement;
+    }
+    setDisplacement (displacement:any) {
+        this.displacement = displacement;
+    }
+    getAnchor() {
+        return this.anchor;
+    }
+    setAnchor (anchor:any) {
+        this.anchor = anchor;
+    }
+    getPerpOff() {
+        return this.perpOff;
+    }
+    setPerpOff(perpOff:any) {
+        this.perpOff = perpOff;
+    }
+    
+    getFontText() {
+        return this.fontText;
+    }
+    setFontText (fontText:any) {
+        this.fontText = fontText;
+    }
+    
+    getFontStyle() {
+        return this.fontStyle;
+    }
+    setFontStyle (fontStyle:any) {
+        this.fontStyle = fontStyle;
+    }
+    
+    getFontWeight() {
+        return this.fontWeight;
+    }
+    setFontWeight (fontWeight:any) {
+        this.fontWeight = fontWeight;
+    }
+
 }
