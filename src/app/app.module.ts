@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdCheckboxModule, 
@@ -60,8 +61,10 @@ import 'hammerjs';
     GeneralTextComponent
   ],
   imports: [
+    CommonModule, 
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -76,7 +79,9 @@ import 'hammerjs';
     MdInputModule
    // ColorPickerModule
   ],
-  providers: [PreviewService],
+  providers: [
+              PreviewService,
+              ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,8 +3,8 @@
         <div id="shapePreview" [hidden]="!canvas"> 
            <canvas #myCanvas id="shape"></canvas>
         </div>
-        <div id="imagePreview">
-            <img [src]="externalImage" [hidden]="!image">
+        <div id="imagePreview" [hidden]="!image">
+            <img [src]="externalImage">
         </div>
     </div>
     <my-save-cancel-buttons></my-save-cancel-buttons>

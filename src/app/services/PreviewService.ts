@@ -30,6 +30,9 @@ export class PreviewService {
     public symbol_attr = "symbol";
     public type_attr = "type";
 
+    //CheckBox
+    public checkWidth_attr = "check_width";
+
     //Text
     public displacement_attr = "displacement";
     public anchor_attr = "anchor";
@@ -64,6 +67,11 @@ export class PreviewService {
 
     setOpacity(opacity:number) {
         this.previewAttr.setOpacity(opacity);
+        this.anyProperty.next(this.previewAttr);
+    }
+
+    setCheckWidth(checkWidth:boolean) {
+        this.previewAttr.setCheckWidth(checkWidth);
         this.anyProperty.next(this.previewAttr);
     }
 
@@ -146,6 +154,10 @@ export class PreviewService {
                 this.setSeparation(value);
                 break;
             }
+            
+            case this.checkWidth_attr: {
+                this.setCheckWidth(value);
+            }
 
             case this.width_attr: {
                 this.setWidth(value);
@@ -207,7 +219,5 @@ export class PreviewService {
                 break;
             }
         }
-
     }
-
 }

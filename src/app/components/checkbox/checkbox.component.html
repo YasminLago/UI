@@ -1,3 +1,11 @@
-<div class="check-container" *ngIf="!check">
-    <md-checkbox align="end" [checked]= "check">{{textLabelCheckBox}}</md-checkbox>
+<div [formGroup]="getFormGroup()" class="check-container">
+    <md-checkbox 
+                [formControlName]="attrName" 
+                align="end" 
+                [checked]="isCheck">
+        {{textLabelCheckBox}}
+    </md-checkbox>
+
 </div>
+
+<!--(change)= "activeBorder()"-->

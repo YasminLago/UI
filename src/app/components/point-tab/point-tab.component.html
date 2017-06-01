@@ -1,16 +1,16 @@
 <div class="content-tab-point">
-  <my-checkbox text-label-checkbox="Punto"></my-checkbox>
+  <!--<my-checkbox attr-name="punto" text-label-checkbox="Punto"></my-checkbox>-->
   <my-general 
-              [g-opacity-slider]="opacityActive"
-              [g-symbol-combo]=false 
-              [g-image]=false 
-              [g-size-slider]=false 
-              [g-rotate]=false>
+              [show-g-opacity-slider]="true"
+              [show-g-symbol-combo]=false 
+              [show-g-image]=false 
+              [show-g-size-slider]=false 
+              [show-g-rotate]=false>
   </my-general>
 
   <border-style 
               text-label="Borde" 
-              [check]=false 
-              [width-slider]=false>
+              [show-check]=false 
+              [show-width-slider]=false>
   </border-style>
 </div>

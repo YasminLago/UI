@@ -11,6 +11,7 @@ export class PreviewAttr {
     private externalImage = new Subject<boolean>();
     private opacity = new Subject<number>();
     private width = new Subject<number>();
+    private checkWidth = new Subject<boolean>();
     private size = new Subject<number>();
     private separation = new Subject<number>();
     private rotate = new Subject<number>();
@@ -32,6 +33,7 @@ export class PreviewAttr {
     externalImage$ = this.externalImage.asObservable();
     opacity$ = this.opacity.asObservable();
     width$ = this.width.asObservable();
+    checkWidth$ = this.checkWidth.asObservable();
     size$ = this.size.asObservable();
     separation$ = this.separation.asObservable();
     rotate$ = this.rotate.asObservable();
@@ -80,6 +82,13 @@ export class PreviewAttr {
     }
     setOpacity(opacity:any) {
         this.opacity = opacity;
+    }
+
+    setCheckWidth(checkWidth:any) {
+        this.checkWidth = checkWidth;
+    }
+    getCheckWidth() {
+        return this.checkWidth;
     }
 
     getWidth() {

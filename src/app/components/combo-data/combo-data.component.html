@@ -1,9 +1,11 @@
-<div class="combo-data-container">
+<div [formGroup]="getFormGroup()" class="combo-data-container">
   <div class="combo-label">
     <label>{{textLabelCombo}}: </label> 
   </div>
   <div class="combo-select">
-    <md-select (click)="selectedComboShape()"
+    <md-select
+               [formControlName]="attrName"
+               (click)="selectedComboShape()"
                placeholder= {{placeHolder}} 
                [(ngModel)]="selectedShape" 
                name="shape" 

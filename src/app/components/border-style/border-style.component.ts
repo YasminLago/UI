@@ -1,35 +1,73 @@
 import { Component, Input } from '@angular/core';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'border-style',
   templateUrl: './border-style.component.html',
   styleUrls: ['./border-style.component.css',
-              '../../styles/buttonStyle.css']
+    '../../styles/buttonStyle.css']
 })
 
 export class BorderStyleComponent {
-  
-  @Input('text-label') textLbl:string;
 
-  @Input('lbl') lbl:boolean = true;
-  @Input('check') check:boolean = true;
-  @Input('combo') combo:boolean = true; 
-  @Input('width-slider') widthSlider:boolean = true;
-  @Input('opacity-slider') opacitySlider:boolean = true;
-  @Input('separation-slider') separationSlider:boolean = true;
-  @Input('position-slider') positionSlider:boolean = true;
-  @Input('distance-slider') distanceSlider:boolean = true;
-  @Input('size-slider') sizeSlider:boolean = true;
-  @Input('color-button') colorButton:boolean = false;
-  @Input('image') image:boolean = true;
-  @Input('rotate') rotate:boolean = true;
+  @Input('text-label') textLbl: string;
 
-  constructor() { }
+  @Input('show-lbl') lbl: boolean = true;
+  @Input('show-check') check: boolean = true;
+  @Input('show-combo') combo: boolean = true;
+  @Input('show-width-slider') widthSlider: boolean = true;
+  @Input('show-opacity-slider') opacitySlider: boolean = true;
+  @Input('show-separation-slider') separationSlider: boolean = true;
+  @Input('show-position-slider') positionSlider: boolean = true;
+  @Input('show-distance-slider') distanceSlider: boolean = true;
+  @Input('show-size-slider') sizeSlider: boolean = true;
+  @Input('show-color-button') colorButton: boolean = false;
+  @Input('show-image') image: boolean = true;
+  @Input('show-rotate') rotate: boolean = true;
 
-  visible():boolean {
+  public form: FormGroup;
+
+  constructor() {
+    this.form = new FormGroup({});
+    this.form.valueChanges.subscribe((value: any) => {
+      console.log('valuechanges',value);
+    });
+    //     check_width: new FormControl(),
+    //     type: new FormControl(),
+    //     externalImage: new FormControl(),
+    //     width: new FormControl(),
+    //     opacity: new FormControl(),
+    //     separation: new FormControl(),
+    //     size: new FormControl(),
+    //     distance: new FormControl(),
+    //     position: new FormControl(),
+    //     rotate: new FormControl(),
+    //     color: new FormControl(),
+    // });
+    // console.log("Constructor border: " + this.form.value);
+  }
+
+  getJson() {
+    //this.form = new FormGroup({});
+    //     check_width: new FormControl(),
+    //     type: new FormControl(),
+    //     externalImage: new FormControl(),
+    //     width: new FormControl(),
+    //     opacity: new FormControl(),
+    //     separation: new FormControl(),
+    //     size: new FormControl(),
+    //     distance: new FormControl(),
+    //     position: new FormControl(),
+    //     rotate: new FormControl(),
+    //     color: new FormControl(),
+    // });
+    console.log("getJSON: ", this.form.value);
+  }
+
+  visible(): boolean {
     return false;
   }
-  hide():boolean {
+  hide(): boolean {
     return true;
   }
 }

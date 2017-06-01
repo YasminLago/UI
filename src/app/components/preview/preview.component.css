@@ -17,25 +17,25 @@
     padding: 5px;
     display: table;
     text-align: center;
+    position: relative;
   }
 
     #shapePreview {
       /*border: #1f618d 1px solid;*/
       height: 300px;
       width: 300px;
+      /*background-color:#b7950b;*/
     }
       #shape {
-        display: table-cell;
-        vertical-align: middle;
-      }
-
-    #imagePreview {
-      display: table-cell;
-      vertical-align: middle;
-    }
-      img {
         height: 295px;
         width: 300px;
+        text-align: center;
+        /*background-color: #0b5345;*/
       }
+
+    img {
+      height: 295px;
+      width: 300px;
+    }
 
   

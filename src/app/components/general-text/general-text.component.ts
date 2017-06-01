@@ -19,11 +19,6 @@ export class GeneralTextComponent {
   @Input('gt-position-slider') gtPositionSlider:boolean = true;
   @Input('gt-anchor-slider') gtAnchorSlider:boolean = true;
 
-  fontStyle = [
-                'Normal',
-                'Italic',
-                'Oblique'
-              ];
 
   constructor() { }
 

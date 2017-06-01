@@ -1,62 +1,79 @@
-<div class="border-style-container">
-      <div id="lbl-text" [hidden]="lbl">
-            <label>{{textLbl}}</label>
+<form [formGroup]="form" >
+      <div class="border-style-container">
+            <div id="lbl-text" [hidden]="lbl">
+                  <label>{{textLbl}}</label>
+            </div>
+            <my-checkbox 
+                        [form]="form"
+                        attr-name= "check_width"
+                        [hidden]="check" 
+                        text-label-checkbox= {{textLbl}}>
+            </my-checkbox>
+            <div class="box1">
+                  <my-combo-data 
+                              [form]="form"
+                              [hidden]="combo" 
+                              text-label-combo="Tipo"
+                              attr-name= "type">
+                  </my-combo-data>
+                  <my-image 
+                              [form]="form"
+                              [hidden]="image"
+                              attr-name= "externalImage">
+                  </my-image>
+                  <my-slider 
+                              [form]="form"
+                              attr-name= "width"
+                              [hidden]="widthSlider" 
+                              text-label-slider="Ancho"
+                              min-value="0"
+                              max-value="10">
+                  </my-slider>
+                  <my-slider 
+                              [form]="form"
+                              attr-name= "opacity"
+                              [hidden]="opacitySlider" 
+                              text-label-slider="Transparentar">
+                  </my-slider>
+            </div>
+            <div class="box2">
+                  <my-slider 
+                              [form]="form"
+                              attr-name= "separation"
+                              [hidden]="separationSlider" 
+                              text-label-slider="Separación">
+                  </my-slider>
+                  <my-slider 
+                              [form]="form"
+                              attr-name= "size"
+                              [hidden]="sizeSlider" 
+                              text-label-slider="Tamaño">
+                  </my-slider>
+                  <my-slider 
+                              [form]="form"
+                              attr-name= "distance"
+                              [hidden]="distanceSlider" 
+                              text-label-slider="Distancia">
+                  </my-slider>
+                  <my-slider 
+                              [form]="form"
+                              attr-name= "position"
+                              [hidden]="positionSlider" 
+                              text-label-slider="Posición">
+                  </my-slider>
+                  <my-rotate 
+
+                              attr-name= "rotate"
+                              [hidden]="rotate">
+                  </my-rotate>
+                  <br>
+                  <my-color-button 
+                              [form]="form"
+                              attr-name= "color"
+                              [hidden]="colorButton" 
+                              id="border-color-button">
+                  </my-color-button>
+                  <button (click)="getJson()">JSON</button>
+            </div>
       </div>
-      <my-checkbox 
-                  [hidden]="check" 
-                  text-label-checkbox= {{textLbl}}>
-      </my-checkbox>
-      <div class="box1">
-            <my-combo-data 
-                        [hidden]="combo" 
-                        text-label-combo="Tipo"
-                        attr-name= "type">
-            </my-combo-data>
-            <my-image 
-                        [hidden]="image"
-                        attr-name= "externalImage">
-            </my-image>
-            <my-slider 
-                        [hidden]="widthSlider" 
-                        attr-name= "width"
-                        text-label-slider="Ancho">
-            </my-slider>
-            <my-slider 
-                        [hidden]="opacitySlider" 
-                        attr-name= "opacity"
-                        text-label-slider="Transparentar">
-            </my-slider>
-      </div>
-      <div class="box2">
-            <my-slider 
-                        [hidden]="separationSlider" 
-                        attr-name= "separation"
-                        text-label-slider="Separación">
-            </my-slider>
-            <my-slider 
-                        [hidden]="sizeSlider" 
-                        attr-name= "size"
-                        text-label-slider="Tamaño">
-            </my-slider>
-            <my-slider 
-                        [hidden]="distanceSlider" 
-                        attr-name= "distance"
-                        text-label-slider="Distancia">
-            </my-slider>
-            <my-slider 
-                        [hidden]="positionSlider" 
-                        attr-name= "position"
-                        text-label-slider="Posición">
-            </my-slider>
-            <my-rotate 
-                        [hidden]="rotate"
-                        attr-name= "rotate">
-            </my-rotate>
-            <br>
-            <my-color-button 
-                        [hidden]="colorButton" 
-                        attr-name= "color"
-                        id="border-color-button">
-            </my-color-button>
-      </div>
-</div>
+</form>

@@ -10,23 +10,23 @@ import { PointTabComponent } from "../point-tab/point-tab.component";
 })
 export class GeneralComponent {
 
-  @Input('g-symbol-combo') gSymbolCombo:boolean = true;
-  @Input('g-type-combo') gTypeCombo:boolean = true;
-  @Input('g-width-slider') gWidthSlider:boolean = true;
-  @Input('g-opacity-slider') gOpacitySlider:boolean = true;
-  @Input('g-separation-slider') gSeparationSlider:boolean = true;
-  @Input('g-position-slider') gPositionSlider:boolean = true;
-  @Input('g-distance-slider') gDistanceSlider:boolean = true;
-  @Input('g-size-slider') gSizeSlider:boolean = true;
-  @Input('g-rotate') gRotate:boolean = true;
-  @Input('g-image') gImage:boolean = true;
+  @Input('show-g-symbol-combo') gSymbolCombo:boolean = true;
+  @Input('show-g-type-combo') gTypeCombo:boolean = true;
+  @Input('show-g-width-slider') gWidthSlider:boolean = true;
+  @Input('show-g-opacity-slider') gOpacitySlider:boolean = true;
+  @Input('show-g-separation-slider') gSeparationSlider:boolean = true;
+  @Input('show-g-position-slider') gPositionSlider:boolean = true;
+  @Input('show-g-distance-slider') gDistanceSlider:boolean = true;
+  @Input('show-g-size-slider') gSizeSlider:boolean = true;
+  @Input('show-g-rotate') gRotate:boolean = true;
+  @Input('show-g-image') gImage:boolean = true;
 
-  pointTab:PointTabComponent;
+//  pointTab:PointTabComponent;
 
   constructor() { }
 
-  setOpacity(value:boolean){
+ /* setOpacity(value:boolean){
     this.pointTab.activeOpacity(value);
-  }
+  }*/
 
 }

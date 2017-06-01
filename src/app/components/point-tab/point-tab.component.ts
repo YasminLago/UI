@@ -7,13 +7,13 @@ import { Component, Input } from '@angular/core';
 })
 export class PointTabComponent {
 
-  @Input()opacityActive:boolean;
+  @Input() opacityActive:boolean;
 
 
   constructor() { }
 
-  activeOpacity(value:boolean){
+ /* activeOpacity(value:boolean){
     this.opacityActive = value;
     console.log(this.opacityActive);
-  }
+  }*/
 }

@@ -1,55 +1,70 @@
 <div class="container">
   <div class="box1">
     <my-combo-data 
-                  [hidden]="gSymbolCombo" 
                   attr-name="symbol"
+                  [hidden]="gSymbolCombo" 
+     
                   text-label-combo="Símbolo">
     </my-combo-data>
     <my-combo-data 
+                  attr-name="type"
                   [hidden]="gTypeCombo" 
-                  attr-name="type" 
+           
                   text-label-combo="Tipo de línea">
     </my-combo-data>
+
+<!-- [active-opacity]="activOpacity" #activOpacity-->
+
     <my-image 
-              [active-opacity]="opacityActive"
+              attr-name="external_image"
               [hidden]="gImage" 
-              attr-name="external_image">
+             >
     </my-image>
     <my-slider 
-              #opacityActive
+              min-value="0"
+              max-value="1"
+              attr-name="opacity"
               [hidden]="gOpacitySlider" 
-              attr-name="opacity" 
               text-label-slider="Transparentar">
     </my-slider>
   </div>
   <div class="box2">
-    <my-slider 
+    <my-slider  
+              min-value="0"
+              max-value="10"
+              attr-name="width"
               [hidden]="gWidthSlider" 
-              attr-name="width" 
+             
               text-label-slider="Ancho"
               active=false>
     </my-slider>
     <my-slider 
+               min-value="0"
+               max-value="60"
+               attr-name="size"
                [hidden]="gSizeSlider" 
-               attr-name= "size"
+              
                text-label-slider="Tamaño"
                active=false>
     </my-slider>
     <my-rotate 
+              attr-name="rotate"
               [hidden]="gRotate" 
-              attr-name="rotate" >
+               >
     </my-rotate>
     <my-slider 
+              attr-name="separation"
               [hidden]="gSeparationSlider" 
-              attr-name="separation"  
+                
               text-label-slider="Separación" 
               title="Separación entre líneas"
               active=false>
     </my-slider>
     <br>
     <my-color-button 
+               attr-name="color"
                id="general-color-button" 
-               attr-name="color">
+               >
     </my-color-button>
   </div>
 </div>

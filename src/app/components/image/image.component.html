@@ -1,10 +1,15 @@
-<div class="url-image-container">
+<div [formGroup]="getFormGroup()" class="url-image-container">
   <div class="imglbl">
     <label class="url-image-component" id="imagelbl">Imagen: </label>
   </div>
   <div class="image">
     <md-input-container>
-      <input mdInput type="url" placeholder="URL" id="external-image" [(ngModel)]="externalImage">
+      <input mdInput 
+             type="url" 
+             placeholder="URL" 
+             id="external-image" 
+             [(ngModel)]="externalImage"
+             [formControlName]="attrName">
     </md-input-container>
     <div class="buttonURL">
       <md-icon (click)="createImage()">check</md-icon>

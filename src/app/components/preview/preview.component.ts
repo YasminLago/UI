@@ -1,4 +1,4 @@
-import { Component, ViewChild, Input, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, ViewChild, Input, AfterViewInit } from '@angular/core';
 
 import { CreateButtonComponent } from "../create-button/create-button.component";
 import { PreviewService } from "../../services/PreviewService";
@@ -18,16 +18,22 @@ export class PreviewComponent implements AfterViewInit{
 
   @ViewChild("myCanvas") mycanvas;
 
+  ctx:CanvasRenderingContext2D;
   canvas:boolean = false;
+  
   image:any = false;
   externalImage:any = '';
 
-  ctx:CanvasRenderingContext2D;
+  checkBorder:any;
+  
   shape:any;
-  sizePoint:any = 30;
-  widthStroke:any = 5;
+  sizePoint:any = 100;
+  widthStroke:any = 0;
   colorFill:any = "#1f618d";
   colorStroke:string = "#00000";
+
+  x:number;
+  y:number;
 
   constructor(private previewService?:PreviewService) {
     previewService.anyProperty$.subscribe(
@@ -39,8 +45,10 @@ export class PreviewComponent implements AfterViewInit{
   ngAfterViewInit() {
     let canvas = this.mycanvas.nativeElement;
     this.ctx = canvas.getContext("2d");
-    this.ctx.canvas.width = window.innerWidth;
-    this.ctx.canvas.height = window.innerHeight;
+    this.ctx.canvas.width = 300;
+    this.ctx.canvas.height = 300;
+    this.x = this.ctx.canvas.width/2;    // = window.innerWidth;
+    this.y = this.ctx.canvas.height/2;// = window.innerHeight;
   }
 
   setCanvas(canvas:boolean) {
@@ -49,7 +57,9 @@ export class PreviewComponent implements AfterViewInit{
   }
 
   setDrawImage(previewAttr?:PreviewAttr) {
-    this.externalImage = previewAttr.getImage();  //URL  
+    this.externalImage = previewAttr.getImage(); //URL  
+    this.clearShape();
+    this.canvas = false;
   }
 
   clearShape(){
@@ -57,27 +67,126 @@ export class PreviewComponent implements AfterViewInit{
     this.ctx.restore();
   }
 
+ 
+
   /**************************POINT*****************************/
   drawPoint(previewAttr?:PreviewAttr) {
+
+    //  this.checkBorder = previewAttr.getCheckWidth();
       this.ctx.beginPath();
-      this.ctx.arc(150, 140, 60, 0, 2*Math.PI, true);
+      this.ctx.arc(this.x, this.y, 60, 0, 2*Math.PI, true);
       console.log('Valor de size en Draw ' + this.sizePoint);
       this.ctx.fillStyle = this.colorFill;
       this.ctx.fill();
-      this.ctx.lineWidth = this.widthStroke;
-      this.ctx.strokeStyle = this.colorStroke;
-      this.ctx.stroke();
-    
+    //  if (this.checkBorder == true) {
+        this.ctx.lineWidth = this.widthStroke;
+        this.ctx.strokeStyle = this.colorStroke;
+        this.ctx.stroke();
+     // }
+  }
+
+  getWidth (previewAttr?:PreviewAttr) {
+      this.widthStroke = previewAttr.getWidth();
+    return  this.widthStroke;
   }
 
   reDrawPoint(previewAttr?:PreviewAttr) {
+    this.clearShape();
+    this.image = previewAttr.getExternalImage();//Boolean
+    console.log("ANTESImage en preview "+this.image);
+    
+    this.sizePoint = previewAttr.getSize();
+    this.colorFill = previewAttr.getColor();
+    this.shape = previewAttr.getSymbol();
+
+    if(this.image == true) {
+      this.canvas = false;
+      this.setDrawImage(previewAttr);
+      this.clearShape();
+      console.log("Image en preview "+this.image);
+    
+    } else {
+        this.image = false;
+        switch (this.shape) {
+          case 'circle': {
+            this.ctx.beginPath();
+            this.ctx.arc(this.x, this.y, this.sizePoint, 0, 2*Math.PI, true);
+
+            this.ctx.fillStyle = this.colorFill;
+            this.ctx.fill();
+            this.ctx.lineWidth = this.widthStroke;
+            this.ctx.strokeStyle = this.colorStroke;
+            this.ctx.stroke();
+            this.clearShape();
+            break;
+          }
+          case 'square': {
+            this.ctx.beginPath();
+            this.ctx.fillRect(100,100,this.sizePoint,this.sizePoint);
+            this.ctx.fillStyle = this.colorFill;
+            this.ctx.fill();
+            this.ctx.lineWidth = this.widthStroke;
+            this.ctx.strokeStyle = this.colorStroke;
+            this.ctx.stroke();
+            break;
+          }
+          case 'triangle': {
+            
+            let sWidth =  this.ctx.canvas.width;
+            let sHeight = this.ctx.canvas.height;
+            // the triangle
+           /* this.ctx.beginPath();
+            this.ctx.moveTo((sWidth/2)+50,sHeight/2);
+            this.ctx.lineTo((sWidth/2),(sHeight/2)-90);
+            this.ctx.lineTo((sWidth/2)-50,sHeight/2);
+            this.ctx.closePath();*/
+
+            this.ctx.beginPath();
+            this.ctx.moveTo((sWidth/2)+50,200);
+            this.ctx.lineTo((sWidth/2),(200)-90);
+            this.ctx.lineTo((sWidth/2)-50,200);
+            this.ctx.closePath();
+          
+            // the outline
+            this.ctx.lineWidth = this.widthStroke;
+            this.ctx.strokeStyle = this.colorFill;
+            this.ctx.stroke();
+            
+            // the fill color
+            this.ctx.fillStyle = this.colorFill;
+            this.ctx.fill();
+            break;
+        }
+
+          case 'star': {
+            this.ctx.beginPath();
+            this.ctx.translate(this.x, this.y);
+            this.ctx.moveTo(0,0-50);
+            for (var i = 0; i < 5; i++) {
+                this.ctx.rotate(Math.PI / 5);
+                this.ctx.lineTo(0, 0 - (50*0.5));
+                this.ctx.rotate(Math.PI / 5);
+                this.ctx.lineTo(0, 0 - 50);
+                this.clearShape();
+            }
+            this.ctx.lineWidth = this.widthStroke;
+            this.ctx.fill();
+            this.ctx.stroke();
+            break;
+          }
+        }
+      }
+  }
+  
+
+ /* reDrawPoint(previewAttr?:PreviewAttr) {
     this.image = previewAttr.getExternalImage();//Boolean
     this.clearShape();
     this.sizePoint = previewAttr.getSize();
     this.colorFill = previewAttr.getColor();
     this.shape = previewAttr.getSymbol();
 
-    if(this.image != false){
+    if(this.image != false) {
       this.setDrawImage(previewAttr);
 
     } else {
@@ -104,9 +213,9 @@ export class PreviewComponent implements AfterViewInit{
           this.ctx.stroke();
           break;
         }
-        case 'triangle': {
+        /* case 'triangle': {
 
-      /*   let sWidth =  this.ctx.canvas.width;
+          let sWidth =  this.ctx.canvas.width;
           let sHeight = this.ctx.canvas.height;
           // the triangle
           this.ctx.beginPath();
@@ -123,7 +232,7 @@ export class PreviewComponent implements AfterViewInit{
           // the fill color
           this.ctx.fillStyle = this.colorFill;
           this.ctx.fill();
-          break;*/
+          break;
         }
         case 'star': {
           this.ctx.beginPath();
@@ -140,12 +249,12 @@ export class PreviewComponent implements AfterViewInit{
           break;
         }
         case 'cross': {
-          /*this.ctx.beginPath();
+          this.ctx.beginPath();
           this.ctx.moveTo(100, 200);
           this.ctx.lineTo(100,300);
     
           this.ctx.lineTo(100, 100);
-          this.ctx.stroke();*/
+          this.ctx.stroke();
         }
         case 'x': {
           this.ctx.beginPath();
@@ -159,7 +268,10 @@ export class PreviewComponent implements AfterViewInit{
         }
       }
     }
-  }
+  }*/
+
+
+
 /**************************END POINT**********************************/
 drawSquare() {
     this.ctx.beginPath();

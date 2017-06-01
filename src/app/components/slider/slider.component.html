@@ -1,13 +1,15 @@
-<div class="slider-container" >
+<div [formGroup]="getFormGroup()" class="slider-container">
     <div class="sliderlbl">
         <label>{{textLabelSlider}}:</label>
     </div>
     <div class="slider-element">
-        <md-slider (click)="setSliderValue($event)"
+        <md-slider 
+                   [formControlName]="attrName"
+                   (click)="setSliderValue($event)"
                    [(ngModel)]="sliderValue"
                    step="2" 
-                   min="0" 
-                   max="60"
+                   min= {{minValue}} 
+                   max= {{maxValue}}
                    [disabled]="active">
         </md-slider>
     </div>
