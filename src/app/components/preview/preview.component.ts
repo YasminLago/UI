@@ -93,7 +93,7 @@ export class PreviewComponent implements AfterViewInit{
   reDrawPoint(previewAttr?:PreviewAttr) {
     this.clearShape();
     this.image = previewAttr.getExternalImage();//Boolean
-    console.log("ANTESImage en preview "+this.image);
+    //console.log("ANTESImage en preview "+this.image);
     
     this.sizePoint = previewAttr.getSize();
     this.colorFill = previewAttr.getColor();
@@ -103,7 +103,7 @@ export class PreviewComponent implements AfterViewInit{
       this.canvas = false;
       this.setDrawImage(previewAttr);
       this.clearShape();
-      console.log("Image en preview "+this.image);
+      //console.log("Image en preview "+this.image);
     
     } else {
         this.image = false;

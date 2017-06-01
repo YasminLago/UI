@@ -1,70 +1,72 @@
-<div class="container">
-  <div class="box1">
-    <my-combo-data 
-                  attr-name="symbol"
-                  [hidden]="gSymbolCombo" 
-     
-                  text-label-combo="Símbolo">
-    </my-combo-data>
-    <my-combo-data 
-                  attr-name="type"
-                  [hidden]="gTypeCombo" 
-           
-                  text-label-combo="Tipo de línea">
-    </my-combo-data>
+ <form [formGroup]="generalForm">
+  <div class="container">
+    <div class="box1">
+      <my-combo-data 
+                    [general-form]="generalForm"
+                    attr-name="symbol"
+                    [hidden]="gSymbolCombo" 
+                    text-label-combo="Símbolo">
+      </my-combo-data>
+      <my-combo-data 
+                    [general-form]="generalForm"
+                    attr-name="type"
+                    [hidden]="gTypeCombo" 
+                    text-label-combo="Tipo de línea">
+      </my-combo-data>
 
-<!-- [active-opacity]="activOpacity" #activOpacity-->
+  <!-- [active-opacity]="activOpacity" #activOpacity-->
 
-    <my-image 
-              attr-name="external_image"
-              [hidden]="gImage" 
-             >
-    </my-image>
-    <my-slider 
-              min-value="0"
-              max-value="1"
-              attr-name="opacity"
-              [hidden]="gOpacitySlider" 
-              text-label-slider="Transparentar">
-    </my-slider>
+      <my-image 
+                [general-form]="generalForm"
+                attr-name="external_image"
+                [hidden]="gImage">
+      </my-image>
+      <my-slider 
+                [general-form]="generalForm"
+                min-value="0"
+                max-value="1"
+                attr-name="opacity"
+                [hidden]="gOpacitySlider" 
+                text-label-slider="Transparentar">
+      </my-slider>
+    </div>
+    <div class="box2">
+      <my-slider  
+                [general-form]="generalForm"
+                min-value="0"
+                max-value="10"
+                attr-name="width"
+                [hidden]="gWidthSlider" 
+                text-label-slider="Ancho"
+                active=false>
+      </my-slider>
+      <my-slider 
+                [general-form]="generalForm"
+                min-value="0"
+                max-value="60"
+                attr-name="size"
+                [hidden]="gSizeSlider" 
+                text-label-slider="Tamaño"
+                active=false>
+      </my-slider>
+      <my-rotate 
+                attr-name="rotate"
+                [hidden]="gRotate">
+      </my-rotate>
+      <my-slider  
+                [general-form]="generalForm"
+                attr-name="separation"
+                [hidden]="gSeparationSlider" 
+                text-label-slider="Separación" 
+                title="Separación entre líneas"
+                active=false>
+      </my-slider>
+      <br>
+      <my-color-button 
+                [general-form]="generalForm"
+                attr-name="color"
+                id="general-color-button">
+      </my-color-button>
+    </div>
   </div>
-  <div class="box2">
-    <my-slider  
-              min-value="0"
-              max-value="10"
-              attr-name="width"
-              [hidden]="gWidthSlider" 
-             
-              text-label-slider="Ancho"
-              active=false>
-    </my-slider>
-    <my-slider 
-               min-value="0"
-               max-value="60"
-               attr-name="size"
-               [hidden]="gSizeSlider" 
-              
-               text-label-slider="Tamaño"
-               active=false>
-    </my-slider>
-    <my-rotate 
-              attr-name="rotate"
-              [hidden]="gRotate" 
-               >
-    </my-rotate>
-    <my-slider 
-              attr-name="separation"
-              [hidden]="gSeparationSlider" 
-                
-              text-label-slider="Separación" 
-              title="Separación entre líneas"
-              active=false>
-    </my-slider>
-    <br>
-    <my-color-button 
-               attr-name="color"
-               id="general-color-button" 
-               >
-    </my-color-button>
-  </div>
-</div>
+ </form>

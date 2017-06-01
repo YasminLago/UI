@@ -17,8 +17,10 @@ export class ComboDataComponent implements OnInit {
   @Input('place-holder') placeHolder:string;
   @Input('attr-name') attrName:string;
 
-  @Input('form') form: FormGroup;
+  @Input('border-form') borderForm: FormGroup;
   control: FormControl;
+  @Input('general-form') generalForm: FormGroup;
+  generalControl: FormControl;
 
   shapes: any = [ 
     {value: 'circle', viewValue: 'Círculo'},
@@ -35,20 +37,20 @@ export class ComboDataComponent implements OnInit {
   
   ngOnInit() {
     this.control = new FormControl();
-    if (this.form) {
-      this.form.addControl(this.attrName, this.control);
+    if (this.borderForm) {
+      this.borderForm.addControl(this.attrName, this.control);
       // console.log(this.form.value);
     }
   }
 
     getFormGroup() {
-    if (this.form) {
-      return this.form;
-    } else {
-      let arg = {};
-      arg[this.attrName] = this.control;
-      return new FormGroup(arg);
-    }
+      if (this.borderForm) {
+        return this.borderForm;
+      } else {
+        let arg = {};
+        arg[this.attrName] = this.control;
+        return new FormGroup(arg);
+      }
     }
 
   selectedComboShape() {

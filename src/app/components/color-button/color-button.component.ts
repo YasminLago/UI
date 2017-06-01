@@ -14,27 +14,29 @@ import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
 export class ColorButtonComponent implements OnInit{
 
   @Input('attr-name') attrName:string;
-  @Input('form') form: FormGroup;
+  @Input('border-form') borderForm: FormGroup;
   private color: string = "#1f618d";
   control: FormControl;
+  @Input('general-form') generalForm: FormGroup;
+  generalControl: FormControl;
 
   constructor(private previewService:PreviewService) { }
 
 
     getFormGroup() {
-    if (this.form) {
-      return this.form;
-    } else {
-      let arg = {};
-      arg[this.attrName] = this.control;
-      return new FormGroup(arg);
-    }
+      if (this.borderForm) {
+        return this.borderForm;
+      } else {
+        let arg = {};
+        arg[this.attrName] = this.control;
+        return new FormGroup(arg);
+      }
     }
 
   ngOnInit() {
     this.control = new FormControl();
-    if (this.form){
-        this.form.addControl(this.attrName, this.control);
+    if (this.borderForm){
+        this.borderForm.addControl(this.attrName, this.control);
     }
   }
 

@@ -25,12 +25,12 @@ export class BorderStyleComponent {
   @Input('show-image') image: boolean = true;
   @Input('show-rotate') rotate: boolean = true;
 
-  public form: FormGroup;
+  public borderForm: FormGroup;
 
   constructor() {
-    this.form = new FormGroup({});
-    this.form.valueChanges.subscribe((value: any) => {
-      console.log('valuechanges',value);
+    this.borderForm = new FormGroup({});
+    this.borderForm.valueChanges.subscribe((value: any) => {
+      console.log('valuechangesborder',value);
     });
     //     check_width: new FormControl(),
     //     type: new FormControl(),
@@ -61,7 +61,7 @@ export class BorderStyleComponent {
     //     rotate: new FormControl(),
     //     color: new FormControl(),
     // });
-    console.log("getJSON: ", this.form.value);
+    console.log("getJSON: ", this.borderForm.value);
   }
 
   visible(): boolean {

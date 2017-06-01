@@ -18,17 +18,20 @@ export class ImageComponent implements OnInit{
 
   @Input('attr-name') attrName:string;
   @Input() externalImage:string;
-  @Input('form') form: FormGroup;
+  @Input('border-form') borderForm: FormGroup;
 
   activeOpacity:SliderComponent;
   control: FormControl;
+  @Input('general-form') generalForm: FormGroup;
+  generalControl: FormControl;
+
 
   constructor(private previewService:PreviewService) { }
 
   ngOnInit() {
     this.control = new FormControl();
-    if (this.form) {
-      this.form.addControl(this.attrName, this.control);
+    if (this.borderForm) {
+      this.borderForm.addControl(this.attrName, this.control);
       // console.log(this.form.value);
     }
   }
@@ -42,13 +45,13 @@ export class ImageComponent implements OnInit{
      }
   }
     getFormGroup() {
-    if (this.form) {
-      return this.form;
-    } else {
-      let arg = {};
-      arg[this.attrName] = this.control;
-      return new FormGroup(arg);
-    }
+      if (this.borderForm) {
+        return this.borderForm;
+      } else {
+        let arg = {};
+        arg[this.attrName] = this.control;
+        return new FormGroup(arg);
+      }
     }
 
 

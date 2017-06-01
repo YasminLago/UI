@@ -1,28 +1,28 @@
-<form [formGroup]="form" >
+<form [formGroup]="borderForm">
       <div class="border-style-container">
             <div id="lbl-text" [hidden]="lbl">
                   <label>{{textLbl}}</label>
             </div>
             <my-checkbox 
-                        [form]="form"
+                        [border-form]="borderForm"
                         attr-name= "check_width"
                         [hidden]="check" 
                         text-label-checkbox= {{textLbl}}>
             </my-checkbox>
             <div class="box1">
                   <my-combo-data 
-                              [form]="form"
+                              [border-form]="borderForm"
                               [hidden]="combo" 
                               text-label-combo="Tipo"
                               attr-name= "type">
                   </my-combo-data>
                   <my-image 
-                              [form]="form"
+                              [border-form]="borderForm"
                               [hidden]="image"
                               attr-name= "externalImage">
                   </my-image>
                   <my-slider 
-                              [form]="form"
+                              [border-form]="borderForm"
                               attr-name= "width"
                               [hidden]="widthSlider" 
                               text-label-slider="Ancho"
@@ -30,7 +30,7 @@
                               max-value="10">
                   </my-slider>
                   <my-slider 
-                              [form]="form"
+                              [border-form]="borderForm"
                               attr-name= "opacity"
                               [hidden]="opacitySlider" 
                               text-label-slider="Transparentar">
@@ -38,25 +38,25 @@
             </div>
             <div class="box2">
                   <my-slider 
-                              [form]="form"
+                              [border-form]="borderForm"
                               attr-name= "separation"
                               [hidden]="separationSlider" 
                               text-label-slider="Separación">
                   </my-slider>
                   <my-slider 
-                              [form]="form"
+                              [border-form]="borderForm"
                               attr-name= "size"
                               [hidden]="sizeSlider" 
                               text-label-slider="Tamaño">
                   </my-slider>
                   <my-slider 
-                              [form]="form"
+                              [border-form]="borderForm"
                               attr-name= "distance"
                               [hidden]="distanceSlider" 
                               text-label-slider="Distancia">
                   </my-slider>
                   <my-slider 
-                              [form]="form"
+                              [border-form]="borderForm"
                               attr-name= "position"
                               [hidden]="positionSlider" 
                               text-label-slider="Posición">
@@ -68,12 +68,11 @@
                   </my-rotate>
                   <br>
                   <my-color-button 
-                              [form]="form"
+                              [border-form]="borderForm"
                               attr-name= "color"
                               [hidden]="colorButton" 
                               id="border-color-button">
                   </my-color-button>
-                  <button (click)="getJson()">JSON</button>
             </div>
       </div>
 </form>

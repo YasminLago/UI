@@ -16,16 +16,12 @@ export class CheckboxComponent implements OnInit {
   @Input('text-label-checkbox') textLabelCheckBox: string;
   @Input('is-check') isCheck: boolean;
   @Input('attr-name') attrName: string;
-  @Input('form') form: FormGroup;
-  control: FormControl;
+  @Input('border-form') borderForm: FormGroup;
+  borderControl: FormControl;
+  @Input('general-form') generalForm: FormGroup;
+  generalControl: FormControl;
 
-  forms = new Forms(this.form, this.attrName, this.control);
-  
-
-  constructor(private previewService: PreviewService, 
-                      form:FormGroup, 
-                      attrName:string, 
-                      control: FormControl) {
+  constructor(private previewService: PreviewService) {
     // super(form, attrName, control);
     // this.form = form;
     // this.attrName = attrName;
@@ -34,19 +30,19 @@ export class CheckboxComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.control = new FormControl();
-    if (this.form) {
-      this.form.addControl(this.attrName, this.control);
+    this.borderControl = new FormControl();
+    if (this.borderForm) {
+      this.borderForm.addControl(this.attrName, this.borderControl);
       // console.log(this.form.value);
     }
   }
 
   getFormGroup() {
-    if (this.form) {
-      return this.form;
+    if (this.borderForm) {
+      return this.borderForm;
     } else {
       let arg = {};
-      arg[this.attrName] = this.control;
+      arg[this.attrName] = this.borderControl;
       return new FormGroup(arg);
     }
   }
