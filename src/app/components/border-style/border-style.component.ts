@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+
 
 @Component({
   selector: 'border-style',
@@ -29,39 +30,8 @@ export class BorderStyleComponent {
 
   constructor() {
     this.borderForm = new FormGroup({});
-    this.borderForm.valueChanges.subscribe((value: any) => {
-      console.log('valuechangesborder',value);
+    this.borderForm.valueChanges.subscribe((value) => {
     });
-    //     check_width: new FormControl(),
-    //     type: new FormControl(),
-    //     externalImage: new FormControl(),
-    //     width: new FormControl(),
-    //     opacity: new FormControl(),
-    //     separation: new FormControl(),
-    //     size: new FormControl(),
-    //     distance: new FormControl(),
-    //     position: new FormControl(),
-    //     rotate: new FormControl(),
-    //     color: new FormControl(),
-    // });
-    // console.log("Constructor border: " + this.form.value);
-  }
-
-  getJson() {
-    //this.form = new FormGroup({});
-    //     check_width: new FormControl(),
-    //     type: new FormControl(),
-    //     externalImage: new FormControl(),
-    //     width: new FormControl(),
-    //     opacity: new FormControl(),
-    //     separation: new FormControl(),
-    //     size: new FormControl(),
-    //     distance: new FormControl(),
-    //     position: new FormControl(),
-    //     rotate: new FormControl(),
-    //     color: new FormControl(),
-    // });
-    console.log("getJSON: ", this.borderForm.value);
   }
 
   visible(): boolean {

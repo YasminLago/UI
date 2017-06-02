@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { PreviewService } from "../../services/PreviewService";
+
 import { PreviewComponent } from "../preview/preview.component";
 
 import { SliderComponent } from "../slider/slider.component";
 import { PointTabComponent } from "../point-tab/point-tab.component";
 import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
+import { Forms } from "../../forms.class";
 
 
 @Component({
@@ -14,26 +16,29 @@ import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
   styleUrls: ['./image.component.css'],
   inputs: [ 'activeOpacity : active-opacity' ]
 })
-export class ImageComponent implements OnInit{
+export class ImageComponent extends Forms implements OnInit{
 
   @Input('attr-name') attrName:string;
   @Input() externalImage:string;
-  @Input('border-form') borderForm: FormGroup;
 
   activeOpacity:SliderComponent;
-  control: FormControl;
-  @Input('general-form') generalForm: FormGroup;
-  generalControl: FormControl;
+  @Input('parent-form') parentForm: FormGroup;
+  parentControl: FormControl;
 
 
-  constructor(private previewService:PreviewService) { }
+  constructor(private previewService:PreviewService) { 
+    super();
+  }
 
   ngOnInit() {
-    this.control = new FormControl();
-    if (this.borderForm) {
-      this.borderForm.addControl(this.attrName, this.control);
-      // console.log(this.form.value);
+    this.setForm(this.parentForm);
+    this.setAttrName(this.attrName);
+
+    this.parentControl = new FormControl();
+    if (this.parentForm) {
+      this.parentForm.addControl(this.attrName, this.parentControl);
     }
+    this.setControl(this.parentControl);
   }
 
   public createImage() {
@@ -44,17 +49,7 @@ export class ImageComponent implements OnInit{
         this.previewService.setExternalImage(false);
      }
   }
-    getFormGroup() {
-      if (this.borderForm) {
-        return this.borderForm;
-      } else {
-        let arg = {};
-        arg[this.attrName] = this.control;
-        return new FormGroup(arg);
-      }
-    }
-
-
+    
   public dropImage() {
     this.externalImage = "";
     this.previewService.setValue(this.attrName,this.externalImage);

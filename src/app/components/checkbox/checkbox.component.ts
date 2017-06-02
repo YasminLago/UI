@@ -4,48 +4,38 @@ import { PreviewService } from "../../services/PreviewService";
 import { PreviewComponent } from "../preview/preview.component";
 
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
- import { Forms } from "../../forms";
+import { Forms } from "../../forms.class";
 
 @Component({
   selector: 'my-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.css']
 })
-export class CheckboxComponent implements OnInit {
+export class CheckboxComponent extends Forms implements OnInit {
 
   @Input('text-label-checkbox') textLabelCheckBox: string;
   @Input('is-check') isCheck: boolean;
   @Input('attr-name') attrName: string;
-  @Input('border-form') borderForm: FormGroup;
-  borderControl: FormControl;
-  @Input('general-form') generalForm: FormGroup;
-  generalControl: FormControl;
+  @Input('parent-form') parentForm: FormGroup;
+  parentControl: FormControl;
+
+  //f: Forms;
 
   constructor(private previewService: PreviewService) {
-    // super(form, attrName, control);
-    // this.form = form;
-    // this.attrName = attrName;
-    // this.control = control;
-    // this.forms.getFormGroup();
+    super();
    }
 
   ngOnInit() {
-    this.borderControl = new FormControl();
-    if (this.borderForm) {
-      this.borderForm.addControl(this.attrName, this.borderControl);
-      // console.log(this.form.value);
+    this.setForm(this.parentForm);
+    this.setAttrName(this.attrName);
+
+    this.parentControl = new FormControl();
+    if (this.parentForm) {
+      this.parentForm.addControl(this.attrName, this.parentControl);
     }
+    this.setControl(this.parentControl);
   }
 
-  getFormGroup() {
-    if (this.borderForm) {
-      return this.borderForm;
-    } else {
-      let arg = {};
-      arg[this.attrName] = this.borderControl;
-      return new FormGroup(arg);
-    }
-  }
 
 
 

@@ -1,28 +1,26 @@
- <form [formGroup]="generalForm">
+<form [formGroup]="generalForm">
   <div class="container">
     <div class="box1">
       <my-combo-data 
-                    [general-form]="generalForm"
+                    [parent-form]="generalForm"
                     attr-name="symbol"
                     [hidden]="gSymbolCombo" 
                     text-label-combo="Símbolo">
       </my-combo-data>
       <my-combo-data 
-                    [general-form]="generalForm"
+                    [parent-form]="generalForm"
                     attr-name="type"
                     [hidden]="gTypeCombo" 
                     text-label-combo="Tipo de línea">
       </my-combo-data>
 
-  <!-- [active-opacity]="activOpacity" #activOpacity-->
-
       <my-image 
-                [general-form]="generalForm"
+                [parent-form]="generalForm"
                 attr-name="external_image"
                 [hidden]="gImage">
       </my-image>
       <my-slider 
-                [general-form]="generalForm"
+                [parent-form]="generalForm"
                 min-value="0"
                 max-value="1"
                 attr-name="opacity"
@@ -32,7 +30,7 @@
     </div>
     <div class="box2">
       <my-slider  
-                [general-form]="generalForm"
+                [parent-form]="generalForm"
                 min-value="0"
                 max-value="10"
                 attr-name="width"
@@ -41,7 +39,7 @@
                 active=false>
       </my-slider>
       <my-slider 
-                [general-form]="generalForm"
+                [parent-form]="generalForm"
                 min-value="0"
                 max-value="60"
                 attr-name="size"
@@ -54,7 +52,7 @@
                 [hidden]="gRotate">
       </my-rotate>
       <my-slider  
-                [general-form]="generalForm"
+                [parent-form]="generalForm"
                 attr-name="separation"
                 [hidden]="gSeparationSlider" 
                 text-label-slider="Separación" 
@@ -63,7 +61,7 @@
       </my-slider>
       <br>
       <my-color-button 
-                [general-form]="generalForm"
+                [parent-form]="generalForm"
                 attr-name="color"
                 id="general-color-button">
       </my-color-button>

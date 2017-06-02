@@ -4,6 +4,7 @@ import { Shape } from "../../combo";
 
 import { PreviewService } from "../../services/PreviewService";
 import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
+import { Forms } from "../../forms.class";
 
 
 @Component({
@@ -12,15 +13,13 @@ import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
   styleUrls: ['./combo-data.component.css']
 
 })
-export class ComboDataComponent implements OnInit {
+export class ComboDataComponent extends Forms implements OnInit {
   @Input('text-label-combo') textLabelCombo:string;  
   @Input('place-holder') placeHolder:string;
   @Input('attr-name') attrName:string;
 
-  @Input('border-form') borderForm: FormGroup;
-  control: FormControl;
-  @Input('general-form') generalForm: FormGroup;
-  generalControl: FormControl;
+  @Input('parent-form') parentForm: FormGroup;
+  parentControl: FormControl;
 
   shapes: any = [ 
     {value: 'circle', viewValue: 'Círculo'},
@@ -32,31 +31,24 @@ export class ComboDataComponent implements OnInit {
   ];
   selectedShape: string ;
 
-  constructor(private previewService:PreviewService) {}
+  constructor(private previewService:PreviewService) {
+    super();
+  }
 
   
   ngOnInit() {
-    this.control = new FormControl();
-    if (this.borderForm) {
-      this.borderForm.addControl(this.attrName, this.control);
-      // console.log(this.form.value);
-    }
-  }
+    this.setForm(this.parentForm);
+    this.setAttrName(this.attrName);
 
-    getFormGroup() {
-      if (this.borderForm) {
-        return this.borderForm;
-      } else {
-        let arg = {};
-        arg[this.attrName] = this.control;
-        return new FormGroup(arg);
-      }
+    this.parentControl = new FormControl();
+    if (this.parentForm) {
+      this.parentForm.addControl(this.attrName, this.parentControl);
     }
+    this.setControl(this.parentControl);
+  }
 
   selectedComboShape() {
     this.previewService.setValue(this.attrName,this.selectedShape);
-    console.log(this.selectedShape);
-    console.log(this.attrName);
   }
   
 

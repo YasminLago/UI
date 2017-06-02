@@ -1,8 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 import { PointTabComponent } from "../point-tab/point-tab.component";
+
+import { XMLService } from "../../services/XMLService";
+
+import { Forms } from "../../forms.class";
+
 
 @Component({
   selector: 'my-general',
@@ -10,7 +15,7 @@ import { PointTabComponent } from "../point-tab/point-tab.component";
   styleUrls: ['./general.component.css',
               '../../styles/buttonStyle.css']
 })
-export class GeneralComponent {
+export class GeneralComponent extends Forms implements OnInit {
 
   @Input('show-g-symbol-combo') gSymbolCombo:boolean = true;
   @Input('show-g-type-combo') gTypeCombo:boolean = true;
@@ -23,15 +28,35 @@ export class GeneralComponent {
   @Input('show-g-rotate') gRotate:boolean = true;
   @Input('show-g-image') gImage:boolean = true;
 
-//  pointTab:PointTabComponent;
+
   public generalForm: FormGroup;
+  parentControl: FormControl;
+
+  @Input('attr-name') attrName:string;
+  @Input('parent-form') parentForm: FormGroup;
   
-  constructor() { 
+  constructor(private xmlService: XMLService) { 
+     super();
      this.generalForm = new FormGroup({});
      this.generalForm.valueChanges.subscribe((value: any) => {
-     console.log('valuechangesgeneral',value);
+     //console.log('valuechangesgeneral',value);
+     if(value){
+        xmlService.setXMLValues(value);
+      }
     });
   }
+
+  ngOnInit() {
+    this.setForm(this.parentForm);
+    this.setAttrName(this.attrName);
+
+    this.parentControl = new FormControl();
+    if (this.parentForm) {
+      this.parentForm.addControl(this.attrName, this.parentControl);
+    }
+    this.setControl(this.parentControl);
+  }
+
 
  /* setOpacity(value:boolean){
     this.pointTab.activeOpacity(value);

@@ -8,6 +8,8 @@ import { Attribute } from "../../attr";
 import { GeneralComponent } from "../general/general.component";
 import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
 
+import { Forms } from "../../forms.class";
+
 
 @Component({
   selector: 'my-slider',
@@ -17,7 +19,7 @@ import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
   // providers: [PreviewService]
 })
 
-export class SliderComponent implements OnInit {
+export class SliderComponent extends Forms implements OnInit {
 
   @Input('text-label-slider') textLabelSlider:string;
   //@Input() attrNumber:number;
@@ -27,41 +29,32 @@ export class SliderComponent implements OnInit {
   
   @Input('min-value') minValue:number;
   @Input('max-value') maxValue:number;
-  @Input('border-form') borderForm: FormGroup;
-  control: FormControl;
-  @Input('general-form') generalForm: FormGroup;
-  generalControl: FormControl;
+  @Input('parent-form') parentForm: FormGroup;
+  parentControl: FormControl;
   //@Input ('active') active:boolean;
   
   //general: GeneralComponent;
 
-  constructor(private previewService:PreviewService) {}
-
-  ngOnInit() {
-    this.control = new FormControl();
-    if (this.borderForm) {
-      this.borderForm.addControl(this.attrName, this.control);
-      // console.log(this.form.value);
-    }
+  constructor(private previewService:PreviewService) {
+    super();
   }
 
-    getFormGroup() {
-      if (this.borderForm) {
-        return this.borderForm;
-      } else {
-        let arg = {};
-        arg[this.attrName] = this.control;
-        return new FormGroup(arg);
-      }
+  ngOnInit() {
+    this.setForm(this.parentForm);
+    this.setAttrName(this.attrName);
+
+    this.parentControl = new FormControl();
+    if (this.parentForm) {
+      this.parentForm.addControl(this.attrName, this.parentControl);
     }
+    this.setControl(this.parentControl);
+  }
+
 
 
   setSliderValue(event: any) {
     //this.attributes.setAttrs(this.attrName)
     this.previewService.setValue(this.attrName, this.sliderValue);
-    console.log("sliderValue: " + this.sliderValue);
-    console.log("minValue: " + this.minValue);
-    console.log("maxValue: " + this.maxValue);
   }
 
   /*active(active:boolean) {

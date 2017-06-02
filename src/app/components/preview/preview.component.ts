@@ -14,7 +14,7 @@ import { PreviewAttr } from "../../services/PreviewAttr";
   // providers: [PreviewService]
 })
 
-export class PreviewComponent implements AfterViewInit{
+export class PreviewComponent implements AfterViewInit {
 
   @ViewChild("myCanvas") mycanvas;
 

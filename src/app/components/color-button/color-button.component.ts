@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 import { PreviewService } from "../../services/PreviewService";
 import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
+import { Forms } from "../../forms.class";
 
 
 @Component({
@@ -11,33 +12,26 @@ import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
   styleUrls: ['./color-button.component.css',
               '../../styles/buttonStyle.css'],
 })
-export class ColorButtonComponent implements OnInit{
+export class ColorButtonComponent extends Forms implements OnInit{
 
   @Input('attr-name') attrName:string;
-  @Input('border-form') borderForm: FormGroup;
   private color: string = "#1f618d";
-  control: FormControl;
-  @Input('general-form') generalForm: FormGroup;
-  generalControl: FormControl;
+  @Input('parent-form') parentForm: FormGroup;
+  parentControl: FormControl;
 
-  constructor(private previewService:PreviewService) { }
-
-
-    getFormGroup() {
-      if (this.borderForm) {
-        return this.borderForm;
-      } else {
-        let arg = {};
-        arg[this.attrName] = this.control;
-        return new FormGroup(arg);
-      }
-    }
+  constructor(private previewService:PreviewService) {
+    super();
+   }
 
   ngOnInit() {
-    this.control = new FormControl();
-    if (this.borderForm){
-        this.borderForm.addControl(this.attrName, this.control);
+    this.setForm(this.parentForm);
+    this.setAttrName(this.attrName);
+
+    this.parentControl = new FormControl();
+    if (this.parentForm) {
+      this.parentForm.addControl(this.attrName, this.parentControl);
     }
+    this.setControl(this.parentControl);
   }
 
 

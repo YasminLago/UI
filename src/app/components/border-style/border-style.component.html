@@ -4,25 +4,25 @@
                   <label>{{textLbl}}</label>
             </div>
             <my-checkbox 
-                        [border-form]="borderForm"
+                        [parent-form]="borderForm"
                         attr-name= "check_width"
                         [hidden]="check" 
                         text-label-checkbox= {{textLbl}}>
             </my-checkbox>
             <div class="box1">
                   <my-combo-data 
-                              [border-form]="borderForm"
+                              [parent-form]="borderForm"
                               [hidden]="combo" 
                               text-label-combo="Tipo"
                               attr-name= "type">
                   </my-combo-data>
                   <my-image 
-                              [border-form]="borderForm"
+                              [parent-form]="borderForm"
                               [hidden]="image"
                               attr-name= "externalImage">
                   </my-image>
                   <my-slider 
-                              [border-form]="borderForm"
+                              [parent-form]="borderForm"
                               attr-name= "width"
                               [hidden]="widthSlider" 
                               text-label-slider="Ancho"
@@ -30,7 +30,7 @@
                               max-value="10">
                   </my-slider>
                   <my-slider 
-                              [border-form]="borderForm"
+                              [parent-form]="borderForm"
                               attr-name= "opacity"
                               [hidden]="opacitySlider" 
                               text-label-slider="Transparentar">
@@ -38,37 +38,36 @@
             </div>
             <div class="box2">
                   <my-slider 
-                              [border-form]="borderForm"
+                              [parent-form]="borderForm"
                               attr-name= "separation"
                               [hidden]="separationSlider" 
                               text-label-slider="Separación">
                   </my-slider>
                   <my-slider 
-                              [border-form]="borderForm"
+                              [parent-form]="borderForm"
                               attr-name= "size"
                               [hidden]="sizeSlider" 
                               text-label-slider="Tamaño">
                   </my-slider>
                   <my-slider 
-                              [border-form]="borderForm"
+                              [parent-form]="borderForm"
                               attr-name= "distance"
                               [hidden]="distanceSlider" 
                               text-label-slider="Distancia">
                   </my-slider>
                   <my-slider 
-                              [border-form]="borderForm"
+                              [parent-form]="borderForm"
                               attr-name= "position"
                               [hidden]="positionSlider" 
                               text-label-slider="Posición">
                   </my-slider>
                   <my-rotate 
-
                               attr-name= "rotate"
                               [hidden]="rotate">
                   </my-rotate>
                   <br>
                   <my-color-button 
-                              [border-form]="borderForm"
+                              [parent-form]="borderForm"
                               attr-name= "color"
                               [hidden]="colorButton" 
                               id="border-color-button">

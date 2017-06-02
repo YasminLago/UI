@@ -1,0 +1,8 @@
+.container-buttons {
+      /*border: #1f618d 2px solid;*/
+      width: 87px;
+      height: 35px;
+}
+    .create-button {
+        float: left;
+    }

@@ -17,6 +17,9 @@ import {MdCheckboxModule,
         MdInputModule } from '@angular/material';
 
 import { PreviewService } from "./services/PreviewService";
+import { XMLService } from "./services/XMLService";
+
+
 
 import { AppComponent } from './app.component';
 import { BorderStyleComponent } from './components/border-style/border-style.component';
@@ -35,6 +38,7 @@ import { PointTabComponent } from "./components/point-tab/point-tab.component";
 import { PolygonTabComponent } from "./components/polygon-tab/polygon-tab.component";
 import { GeneralComponent } from "./components/general/general.component";
 import { GeneralTextComponent } from "./components/general-text/general-text.component";
+import { XmlButtonComponent } from "./components/xml-button/xml-button.component";
 
 //import {ColorPickerModule} from 'angular2-color-picker';
 
@@ -58,7 +62,8 @@ import 'hammerjs';
     PointTabComponent,
     GeneralComponent,
     PolygonTabComponent,
-    GeneralTextComponent
+    GeneralTextComponent,
+    XmlButtonComponent
   ],
   imports: [
     CommonModule, 
@@ -81,6 +86,7 @@ import 'hammerjs';
   ],
   providers: [
               PreviewService,
+              XMLService
               ],
   bootstrap: [AppComponent]
 })

@@ -1,16 +1,23 @@
-<div class="content-tab-point">
-  <my-checkbox attr-name="punto" text-label-checkbox="Punto"></my-checkbox>
-  <my-general 
-              [show-g-opacity-slider]="true"
-              [show-g-symbol-combo]=false 
-              [show-g-image]=false 
-              [show-g-size-slider]=false 
-              [show-g-rotate]=false>
-  </my-general>
+<form [formGroup]="pointTabForm">
+  <div class="content-tab-point">
+    <my-checkbox 
+                [parent-form]="pointTabForm" 
+                attr-name="point" 
+                text-label-checkbox="Punto">
+    </my-checkbox>
+    <my-general 
+                [show-g-opacity-slider]="true"
+                [show-g-symbol-combo]=false 
+                [show-g-image]=false 
+                [show-g-size-slider]=false 
+                [show-g-rotate]=false>
+    </my-general>
 
-  <border-style 
-              text-label="Borde" 
-              [show-check]=false 
-              [show-width-slider]=false>
-  </border-style>
-</div>
+    <border-style 
+                text-label="Borde" 
+                [show-check]=false 
+                [show-width-slider]=false>
+    </border-style>
+  </div>
+</form>
+
