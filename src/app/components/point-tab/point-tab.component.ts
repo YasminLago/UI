@@ -1,5 +1,9 @@
-import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Component, Input, ViewChild } from '@angular/core';
+import { FormControl, 
+         FormGroup, 
+         Validators, 
+         FormBuilder, 
+         FormArray } from '@angular/forms';
 
 import { XMLService } from "../../services/XMLService";
 
@@ -11,22 +15,30 @@ import { XMLService } from "../../services/XMLService";
 })
 export class PointTabComponent {
 
-  @Input() opacityActive:boolean;
+  @Input() opacityActive: boolean;
   pointTabForm: FormGroup;
-  @Input('attr-name') attrName:string;
+  @Input('attr-name') attrName: string;
 
-  constructor(private xmlService: XMLService) { 
+  pointControl: FormControl;
+  innerDataCache = {};
+
+  constructor(private xmlService: XMLService) {
     this.pointTabForm = new FormGroup({});
     this.pointTabForm.valueChanges.subscribe((value: any) => {
-      console.log('valuechangesPOINTTAB',value);
-      if(value) {
-        xmlService.setXMLValues(value);
-      }
+      this.onInnerFormGroupChange({ id:'point', values: this.pointTabForm.value });
     });
   }
 
- /* activeOpacity(value:boolean){
-    this.opacityActive = value;
-    console.log(this.opacityActive);
-  }*/
+  onInnerFormGroupChange(arg) {
+    this.innerDataCache[arg.id] = arg.values;
+    //console.log("POINT TAB", this.innerDataCache);
+    this.xmlService.setXMLValues(this.innerDataCache);
+  }
+
+  
+
+  /* activeOpacity(value:boolean){
+     this.opacityActive = value;
+     console.log(this.opacityActive);
+   }*/
 }

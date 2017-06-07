@@ -86,7 +86,7 @@ import 'hammerjs';
   ],
   providers: [
               PreviewService,
-              XMLService
+              XMLService,
               ],
   bootstrap: [AppComponent]
 })

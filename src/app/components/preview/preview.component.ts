@@ -32,6 +32,8 @@ export class PreviewComponent implements AfterViewInit {
   colorFill:any = "#1f618d";
   colorStroke:string = "#00000";
 
+  rotate:any;
+
   x:number;
   y:number;
 
@@ -67,7 +69,6 @@ export class PreviewComponent implements AfterViewInit {
     this.ctx.restore();
   }
 
- 
 
   /**************************POINT*****************************/
   drawPoint(previewAttr?:PreviewAttr) {
@@ -93,7 +94,6 @@ export class PreviewComponent implements AfterViewInit {
   reDrawPoint(previewAttr?:PreviewAttr) {
     this.clearShape();
     this.image = previewAttr.getExternalImage();//Boolean
-    //console.log("ANTESImage en preview "+this.image);
     
     this.sizePoint = previewAttr.getSize();
     this.colorFill = previewAttr.getColor();
@@ -103,7 +103,6 @@ export class PreviewComponent implements AfterViewInit {
       this.canvas = false;
       this.setDrawImage(previewAttr);
       this.clearShape();
-      //console.log("Image en preview "+this.image);
     
     } else {
         this.image = false;
@@ -122,7 +121,7 @@ export class PreviewComponent implements AfterViewInit {
           }
           case 'square': {
             this.ctx.beginPath();
-            this.ctx.fillRect(100,100,this.sizePoint,this.sizePoint);
+            this.ctx.fillRect(this.x,this.y,this.sizePoint,this.sizePoint);
             this.ctx.fillStyle = this.colorFill;
             this.ctx.fill();
             this.ctx.lineWidth = this.widthStroke;
@@ -131,7 +130,7 @@ export class PreviewComponent implements AfterViewInit {
             break;
           }
           case 'triangle': {
-            
+            this.rotate = previewAttr.getRotate();
             let sWidth =  this.ctx.canvas.width;
             let sHeight = this.ctx.canvas.height;
             // the triangle
@@ -146,6 +145,8 @@ export class PreviewComponent implements AfterViewInit {
             this.ctx.lineTo((sWidth/2),(200)-90);
             this.ctx.lineTo((sWidth/2)-50,200);
             this.ctx.closePath();
+            this.ctx.rotate(Math.PI/this.rotate);
+         // this.ctx.translate(-this.ctx.canvas.width/2, -this.ctx.canvas.height/2);
           
             // the outline
             this.ctx.lineWidth = this.widthStroke;
@@ -168,6 +169,7 @@ export class PreviewComponent implements AfterViewInit {
                 this.ctx.rotate(Math.PI / 5);
                 this.ctx.lineTo(0, 0 - 50);
                 this.clearShape();
+
             }
             this.ctx.lineWidth = this.widthStroke;
             this.ctx.fill();

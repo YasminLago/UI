@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-
 import { PreviewService } from "../../services/PreviewService";
 
 @Component({
@@ -11,13 +10,27 @@ import { PreviewService } from "../../services/PreviewService";
 export class RotateComponent {
 
   @Input('attr-name') attrName:string;
-  @Input('rotate-value')rotateValue:number;
+  @Input('rotate-value') rotateValue: number = 0;
   
   constructor(private previewService:PreviewService) { }
 
-  setRotateValue() {
+  rotateLeftValue() {
+    this.rotateValue--;
     this.previewService.setValue(this.attrName, this.rotateValue);
-    console.log("text attr: " + this.attrName);
+   // console.log("text attr: " + this.attrName);
+   // console.log("RotateValue1: " + this.rotateValue);
   }
 
+  rotateRightValue() {
+    this.rotateValue++;
+    this.previewService.setValue(this.attrName, this.rotateValue);
+   // console.log("text attr: " + this.attrName);
+    //console.log("RotateValue2: " + this.rotateValue);
+  }
+
+  rotateInputValue() {
+      this.previewService.setValue(this.attrName, this.rotateValue);
+     // console.log("text attr: " + this.attrName);
+     // console.log("Rotatevalue3: " + this.rotateValue);
+  }
 }

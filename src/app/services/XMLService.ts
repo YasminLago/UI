@@ -1,6 +1,10 @@
 import {Injectable} from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-
+import { FormControl, 
+         FormGroup, 
+         Validators, 
+         FormBuilder, 
+         FormArray } from '@angular/forms';
 
 @Injectable()
 export class XMLService {

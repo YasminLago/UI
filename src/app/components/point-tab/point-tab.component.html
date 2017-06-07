@@ -6,6 +6,8 @@
                 text-label-checkbox="Punto">
     </my-checkbox>
     <my-general 
+                attr-name="general"
+                (onFormGroupChange)="onInnerFormGroupChange($event)"
                 [show-g-opacity-slider]="true"
                 [show-g-symbol-combo]=false 
                 [show-g-image]=false 
@@ -14,6 +16,8 @@
     </my-general>
 
     <border-style 
+                attr-name="border"
+                (onFormGroupChange)="onInnerFormGroupChange($event)"
                 text-label="Borde" 
                 [show-check]=false 
                 [show-width-slider]=false>

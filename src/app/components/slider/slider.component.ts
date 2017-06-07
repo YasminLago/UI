@@ -51,7 +51,6 @@ export class SliderComponent extends Forms implements OnInit {
   }
 
 
-
   setSliderValue(event: any) {
     //this.attributes.setAttrs(this.attrName)
     this.previewService.setValue(this.attrName, this.sliderValue);

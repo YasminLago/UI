@@ -3,9 +3,26 @@
     <label class="rotate-element" id="rotatelbl">Rotar: </label>      
   </div>
   <div class="rotate-buttons">
-    <button md-mini-fab class="rotate-element" id="rotate-btn" (click)="rotateValue()"><md-icon>rotate_left</md-icon></button>
-    <button md-mini-fab class="rotate-element" id="rotate-btn" (click)="rotateValue()"><md-icon>rotate_right</md-icon></button>
-    <input class="rotate-element" id="rotate-input" flex type="number">
+    <button md-mini-fab 
+          class="rotate-element" 
+          id="rotate-left-btn" 
+          type="button"
+          (click)="rotateLeftValue()">
+          <md-icon>rotate_left</md-icon>
+    </button>
+    <button md-mini-fab 
+          class="rotate-element" 
+          id="rotate-right-btn" 
+          type="button"
+          (click)="rotateRightValue()">
+          <md-icon>rotate_right</md-icon>
+    </button>
+    <input 
+        class="rotate-element" 
+        id="rotate-input" 
+        [(ngModel)]="rotateValue"
+        flex type="number"
+        (keydown.enter)="rotateInputValue()">
     <label class="rotate-element" id="lbl">°</label>
   </div>
 </div>

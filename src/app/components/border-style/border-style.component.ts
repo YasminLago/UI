@@ -1,6 +1,15 @@
-import { Component, Input, AfterViewInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-
+import { Component, 
+         Input, 
+         AfterViewInit, 
+         OnInit, 
+         Output, 
+         EventEmitter } from '@angular/core';
+import { FormControl, 
+         FormGroup, 
+         Validators, 
+         FormBuilder } from '@angular/forms';
+         
+import { Forms } from "../../forms.class";
 
 @Component({
   selector: 'border-style',
@@ -9,10 +18,9 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
     '../../styles/buttonStyle.css']
 })
 
-export class BorderStyleComponent {
+export class BorderStyleComponent extends Forms {
 
   @Input('text-label') textLbl: string;
-
   @Input('show-lbl') lbl: boolean = true;
   @Input('show-check') check: boolean = true;
   @Input('show-combo') combo: boolean = true;
@@ -26,11 +34,17 @@ export class BorderStyleComponent {
   @Input('show-image') image: boolean = true;
   @Input('show-rotate') rotate: boolean = true;
 
-  public borderForm: FormGroup;
+  parentControl: FormControl;
+  borderForm: FormGroup;
+
+  @Input('attr-name') attrName: string;
+  @Output('onFormGroupChange') onFormGroupChange: EventEmitter<Object> = new EventEmitter<Object>();
 
   constructor() {
+    super();
     this.borderForm = new FormGroup({});
     this.borderForm.valueChanges.subscribe((value) => {
+      this.onFormGroupChange.emit({ id: this.attrName, values: this.borderForm.value });
     });
   }
 
