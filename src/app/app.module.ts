@@ -19,7 +19,7 @@ import {MdCheckboxModule,
 import { PreviewService } from "./services/PreviewService";
 import { XMLService } from "./services/XMLService";
 
-
+import { xmlbuilder } from "xmlbuilder";
 
 import { AppComponent } from './app.component';
 import { BorderStyleComponent } from './components/border-style/border-style.component';
