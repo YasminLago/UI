@@ -14,7 +14,7 @@ export class XmlButtonComponent {
   constructor(private xmlService: XMLService){}
 
   createXML () {
-    this.xmlService.createXML();
+    this.xmlService.createXMLPoint();
    // this.xmlService.getXMLValues();
   }
 
