@@ -14,12 +14,10 @@ import { Forms } from "../../forms.class";
 export class CheckboxComponent extends Forms implements OnInit {
 
   @Input('text-label-checkbox') textLabelCheckBox: string;
-  @Input('is-check') isCheck: boolean;
   @Input('attr-name') attrName: string;
   @Input('parent-form') parentForm: FormGroup;
   parentControl: FormControl;
-
-  //f: Forms;
+  isCheck: boolean = false;
 
   constructor(private previewService: PreviewService) {
     super();
@@ -36,16 +34,13 @@ export class CheckboxComponent extends Forms implements OnInit {
     this.setControl(this.parentControl);
   }
 
-
-
-
-  /*activeBorder(){
+  activeBorder(){
     this.previewService.setValue(this.attrName,this.isCheck);
-    console.log("Atributo en Check:  " + this.isCheck);
-    console.log("Check en Check:  " + this.isCheck);
-    if(this.isCheck == true) {
+    // console.log("Atributo en Check:  " + this.attrName);
+    // console.log("Check en Check:  " + this.isCheck);
+    if(this.isCheck == false) {
       this.previewService.setWidth(5);
     }
-  }*/
+  }
 
 }

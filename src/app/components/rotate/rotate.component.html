@@ -4,18 +4,25 @@
   </div>
   <div class="rotate-buttons">
     <button md-mini-fab 
+          
           class="rotate-element" 
           id="rotate-left-btn" 
           type="button"
           (click)="rotateLeftValue()">
-          <md-icon>rotate_left</md-icon>
+          <md-icon 
+                  md-svg-src="../../services/icons/blackIcons/rotate_left.svg">
+              rotate_left
+          </md-icon>
     </button>
     <button md-mini-fab 
           class="rotate-element" 
           id="rotate-right-btn" 
           type="button"
           (click)="rotateRightValue()">
-          <md-icon>rotate_right</md-icon>
+          <md-icon 
+                  md-svg-src="../../services/icons/blackIcons/rotate_right.svg">
+              rotate_right
+          </md-icon>
     </button>
     <input 
         class="rotate-element" 

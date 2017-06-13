@@ -25,7 +25,7 @@
                 max-value="1"
                 attr-name="opacity"
                 [hidden]="gOpacitySlider" 
-                text-label-slider="Transparentar">
+                text-label-slider="Transparencia">
       </my-slider>
     </div>
     <div class="box2">
@@ -48,6 +48,7 @@
                 active=false>
       </my-slider>
       <my-rotate 
+                [parent-form]="generalForm"
                 attr-name="rotate"
                 [hidden]="gRotate">
       </my-rotate>

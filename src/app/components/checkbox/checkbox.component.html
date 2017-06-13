@@ -1,8 +1,9 @@
 <div [formGroup]="getFormGroup()" class="check-container">
     <md-checkbox 
+                (click)="activeBorder()"
                 [formControlName]="attrName" 
                 align="end" 
-                [checked]="isCheck">
+                [(ngModel)]="isCheck">
         {{textLabelCheckBox}}
     </md-checkbox>
 

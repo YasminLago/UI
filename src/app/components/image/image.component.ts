@@ -21,10 +21,9 @@ export class ImageComponent extends Forms implements OnInit{
   @Input('attr-name') attrName:string;
   @Input() externalImage:string;
 
-  activeOpacity:SliderComponent;
+  activeOpacity: SliderComponent;
   @Input('parent-form') parentForm: FormGroup;
   parentControl: FormControl;
-
 
   constructor(private previewService:PreviewService) { 
     super();
@@ -41,7 +40,7 @@ export class ImageComponent extends Forms implements OnInit{
     this.setControl(this.parentControl);
   }
 
-  public createImage() {
+  createImage() {
      this.previewService.setValue(this.attrName,this.externalImage);
      if (this.externalImage != "") {
         this.previewService.setExternalImage(true);
@@ -50,7 +49,7 @@ export class ImageComponent extends Forms implements OnInit{
      }
   }
     
-  public dropImage() {
+  dropImage() {
     this.externalImage = "";
     this.previewService.setValue(this.attrName,this.externalImage);
     this.previewService.setExternalImage(false);

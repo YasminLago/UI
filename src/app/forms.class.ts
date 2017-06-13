@@ -34,7 +34,6 @@ export class Forms {
         this.control = control;
     }
 
-
     getFormGroup() {
         if (this.form) {
             return this.form;
