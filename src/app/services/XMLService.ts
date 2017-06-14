@@ -1,3 +1,7 @@
+/**
+ * Recibe los datos contenidos en el FormGroup de
+ * point-tab y los incluye en el XML
+ */
 import {Injectable} from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { FormControl, 
@@ -7,6 +11,7 @@ import { FormControl,
          FormArray } from '@angular/forms';
 
 import { xmlbuilder } from "xmlbuilder";
+import { XMLWriter } from "xml-writer";
 
 @Injectable()
 export class XMLService {
@@ -21,7 +26,6 @@ export class XMLService {
                        'xmlns:xlink' : 'http://www.w3.org/1999/xlink',
                        'xmlns:xsi' : 'http://www.w3.org/2001/XMLSchema-instance'
                      };
-
 
     namedLayer = "NamedLayer";
     name = "Name";
@@ -90,67 +94,58 @@ export class XMLService {
     valueGeneral;
     valueBorder;
 
+    value;
 
-    builder = require('xmlbuilder');
-    xml = this.builder.create(this.styleLayerDesc, this.utfVersion)
-                      .att(this.styleLayerAttr)
-                      .ele(this.namedLayer)
-                      .ele(this.userStyle)
-                      .ele(this.featureType)
-                      .ele(this.rule);
+    xmlWriter = require('xml-writer');
+    xw = new XMLWriter();
 
-    pointTag = this.xml.ele(this.pointSymbolizer);
+    start = this.xw.startDocument('1.0', 'UTF-8');
 
-    symbolTag = this.xml.ele(this.graphic)
-                        .ele(this.mark)
-                        .ele(this.wellKnownName, this.symbolValue);
-
-    imageTag =  this.xml.ele(this.graphic)
-                        .ele(this.externalGraphic)
-                        .ele(this.onlineResource)
-                        .up()
-                        .ele(this.format);
-
-    sizeTag = this.xml.ele(this.size, this.sizeValue);
-
-    strokeTag = this.xml.ele(this.stroke);
-    //                     .ele(this.cssParameter, { name : this.strokeAttr[] });
+    pointTag = this.start.startElement(function() {
+        if(this.pointValue) {
+            return this.pointSymbolizer;
+        }
+    });
 
 
+    // builder = require('xmlbuilder');
+    // xml = this.builder.create(this.styleLayerDesc, this.utfVersion)
+    //                   .att(this.styleLayerAttr)
+    //                   .ele(this.namedLayer)
+    //                   .ele(this.userStyle)
+    //                   .ele(this.featureType)
+    //                   .ele(this.rule);
 
-    tags = {
-            point : this.pointTag,
-            symbol : this.symbolTag,
-            external_image : this.imageTag
-            };
+    // pointTag = this.xml.ele(this.pointSymbolizer);
 
-    getXMLValues() {
-        return console.log("GETDATOS XML: " );
-    }
+    // symbolTag = this.pointTag.ele(this.graphic)
+    //                          .ele(this.mark)
+    //                          .ele(this.wellKnownName, this.symbolValue);
+                             
 
+    // onlineResourceAttr = {
+    //                         'xlink:type' : "simple",
+    //                         'xlink:href' : ''
+    //                     };
 
+    // imageTag =  this.pointTag.ele(this.graphic)
+    //                          .ele(this.externalGraphic)
+    //                          .ele(this.onlineResource, this.onlineResourceAttr)
+    //                          .up()
+    //                          .ele(this.format);
 
+    // sizeTag = this.xml.ele(this.size, this.sizeValue);
+
+    // strokeTag = this.xml.ele(this.stroke);
+        
     setXMLValues(value:any) {
+        this.value = value;
         console.log(value);
         this.valueGeneral = value.general;
         this.valueBorder = value.border;
 
-       // console.log("General",value.general);
-        if (this.valueGeneral != null) {
-           Object.keys(this.valueGeneral).forEach((key) => {
-                for (let attr in this.strokeAttr) {
-                    if (key == attr) {
-                        this.xml.ele(this.cssParameter, { name : this.strokeAttr[attr] }, this.widthValue);
-                        console.log("key", key);
-                        console.log("attr", attr);
-                    }
-                }
-            }); 
-        }
-
-
         this.pointValue = value.point != undefined ? value.point.point : null;
-        
+
         this.symbolValue = this.valueGeneral != undefined ? this.valueGeneral.symbol : null;
 
         this.imageValue = this.valueGeneral != undefined ? this.valueGeneral.external_image : null;
@@ -182,43 +177,18 @@ export class XMLService {
 
 
     createXMLPoint() {
-
-        if(this.pointValue) {
-            this.pointTag;
-            console.log("pointValue", this.pointValue);
-            console.log(this.xml.end({ pretty: true , allowEmpty: false})); 
-        }
-
-        //  this.xml = this.xml.ele(this.namedLayer);
-        //     this.xml = this.xml.ele(this.userStyle);
-        //         this.xml = this.xml.ele(this.featureType);
-        //             this.xml = this.xml.ele(this.rule);
-        //                 this.xml = this.xml.ele(this.pointSymbolizer);
-       
-        //                     this.xml = this.xml.ele(this.graphic);
-        //                     this.xml = this.xml.ele(this.size, this.sizeValue);
-        //                     this.xml = this.xml.up();
-        //                     this.xml = this.xml.ele(this.opacity, 40);
-        //                     this.xml = this.xml.up();
-        //                     this.xml = this.xml.ele(this.rotation, 40);
-                            
-        //                     this.xml = this.xml.up().ele(this.mark);
-         
-        //  this.xml = this.xml.ele(this.wellKnownName, this.symbolValue);
-         
-        //  this.xml =  this.xml.up().ele('Stroke');
-         
-        //  this.xml = this.xml.ele(this.cssParameter, {name : 'stroke'});
-        //  this.xml = this.xml.up();
-        //  this.xml = this.xml.up().ele(this.fill);
-        //  this.xml = this.xml.ele(this.cssParameter, {name : 'fill'}, '#F54223');
-         
-       // console.log(this.xml.end({ pretty: true , allowEmpty: false})); 
-         
-        //var builder = require('xmlbuilder');
-        //var xml = builder.create('StyledLayerDescriptor', this.utfVersion) 
-            //                 .ele(this.pointSymbolizer)
-            //                  .end({ pretty: true });
-            // console.log(xml);    
-    }
+        this.pointTag
+    //     if (this.valueGeneral != null) {
+    //        Object.keys(this.valueGeneral).forEach((key) => {
+    //             for (let attr in this.strokeAttr) {
+    //                 if (key == attr) {
+    //                    // this.strokeTag.ele(this.cssParameter, { name : this.strokeAttr[attr] }, this.widthValue);
+    //                     console.log("key", key);
+    //                     console.log("attr", attr);
+    //                 }
+    //             }
+    //         }); 
+    //     }
+    //     console.log(this.xml.end({ pretty: true , allowEmpty: false})); 
+     }
 }

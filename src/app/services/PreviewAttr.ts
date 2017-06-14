@@ -1,3 +1,10 @@
+/**
+ * Conecta el flujo de datos entre el componente preview
+ * y el resto de los componentes
+ * Recibe los valores de cada componente del PreviewService
+ * y los retorna a PreviewAttr
+ */
+
 import { Subject } from 'rxjs/Subject';
 
 export class PreviewAttr {

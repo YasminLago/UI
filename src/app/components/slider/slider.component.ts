@@ -27,9 +27,9 @@ export class SliderComponent extends Forms implements OnInit {
   //attributes = new Attribute();
   @Input('value') sliderValue;
   
-  @Input('min-value') minValue:number;
-  @Input('max-value') maxValue:number;
-  @Input('parent-form') parentForm: FormGroup;
+  @Input('min-value') minValue:number; //Valor mínimo del slider
+  @Input('max-value') maxValue:number; //Valor máximo del slider
+  @Input('parent-form') parentForm: FormGroup; //FormGroup al que pertenece. Recibe este valor en (border-style y general)
   parentControl: FormControl;
   //@Input ('active') active:boolean;
   
@@ -39,6 +39,12 @@ export class SliderComponent extends Forms implements OnInit {
     super();
   }
 
+  /**
+   * Los datos se cargan al iniciarse el componente
+   * Envía a la clase Forms el FormGroup al que pertenece,
+   * su nombre de atributo, crea un FormControl para incluírlo 
+   * en el FormGroup y lo envía a Forms
+   */
   ngOnInit() {
     this.setForm(this.parentForm);
     this.setAttrName(this.attrName);
@@ -50,7 +56,9 @@ export class SliderComponent extends Forms implements OnInit {
     this.setControl(this.parentControl);
   }
 
-
+  /**
+   * Envía el valor del slider y el nombre del atributo a PreviewService 
+   */
   setSliderValue(event: any) {
     //this.attributes.setAttrs(this.attrName)
     this.previewService.setValue(this.attrName, this.sliderValue);

@@ -1,3 +1,8 @@
+/**
+ * Recibe los valores de los componentes que después
+ * serán utilizados en el componente preview 
+ */
+
 import {Injectable} from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { PreviewAttr } from "./PreviewAttr";
@@ -42,12 +47,14 @@ export class PreviewService {
     public fontWeight_attr = "font_weight";
 
 
-    constructor() {}
+    /**
+     * Reciben el valor de setValue y lo envían 
+     * a la clase PreviewAttr
+     */
 
     setSymbol(symbol:string) {
         this.previewAttr.setSymbol(symbol);
         this.anyProperty.next(this.previewAttr);
-        console.log("Symbol en preview Service " + symbol);
     }
 
     setType(type:string) {
@@ -138,6 +145,12 @@ export class PreviewService {
     }
 
 
+    /**
+     * Recibe los valores de los componentes usados para 
+     * la caracterización de las formas.
+     * attr: nombre del atributo. Diferencia los distintos componentes
+     * value: valor de cada uno de los componentes
+     */
     setValue (attr:string, value:any) {
         switch (attr) {
             case this.size_attr: {

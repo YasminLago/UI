@@ -1,3 +1,7 @@
+/**
+ * Crea las formas a partir de los datos recibidos de PreviewService
+ */
+
 import { Component, ViewChild, Input, AfterViewInit } from '@angular/core';
 
 import { CreateButtonComponent } from "../create-button/create-button.component";
@@ -10,8 +14,6 @@ import { PreviewAttr } from "../../services/PreviewAttr";
   styleUrls: ['./preview.component.css'],
   inputs : [
   ]
-  // ,
-  // providers: [PreviewService]
 })
 
 export class PreviewComponent implements AfterViewInit {

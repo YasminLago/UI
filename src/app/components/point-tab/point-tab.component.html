@@ -1,3 +1,12 @@
+<!--
+  Pestaña puntos
+  Visualiza los componentes necesarios 
+  para la caracterización de los puntos
+  Incluído en app.component
+
+  (onFormGroupChange): 
+-->
+
 <form [formGroup]="pointTabForm">
   <div class="content-tab-point">
     <my-checkbox 
@@ -7,7 +16,7 @@
     </my-checkbox>
     <my-general 
                 attr-name="general"
-                (onFormGroupChange)="onInnerFormGroupChange($event)"
+                (onFormGroupChange)="onInnerFormGroupChange($event)" 
                 [show-g-opacity-slider]="true"
                 [show-g-symbol-combo]=false 
                 [show-g-image]=false 

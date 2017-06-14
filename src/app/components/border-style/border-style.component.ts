@@ -22,9 +22,11 @@ export class BorderStyleComponent extends Forms {
 
   @Input('text-label') textLbl: string; 
 
-  //Cambia la visibilidad de los componentes.
-  //Envía el valor al atributo [hidden] (border-style.component.html) desde los componentes point-tab, line-tab y polygon-tab
-  //Por defecto true (no visible)
+  /**
+   * Cambia la visibilidad de los componentes.
+   * Envía el valor al atributo [hidden] (border-style.component.html) desde los componentes point-tab, line-tab y polygon-tab
+   * Por defecto true (no visible)
+   */
   @Input('show-lbl') lbl: boolean = true;
   @Input('show-check') check: boolean = true;
   @Input('show-combo') combo: boolean = true;
@@ -51,12 +53,5 @@ export class BorderStyleComponent extends Forms {
       //Envía el nombre del atributo que recibe en point-tab y el FormGroup
       this.onFormGroupChange.emit({ id: this.attrName, values: this.borderForm.value });
     });
-  }
-
-  visible(): boolean {
-    return false;
-  }
-  hide(): boolean {
-    return true;
   }
 }
