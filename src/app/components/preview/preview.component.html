@@ -6,8 +6,18 @@
 
 <div class="container">
     <div class="preview-container">
-        <div id="shapePreview" [hidden]="!canvas"> 
-           <canvas #myCanvas id="shape"></canvas>
+        <div id="shapePreview" > 
+           <!--<canvas #myCanvas id="shape"></canvas>-->
+           <svg id="mySVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!--<circle cx="25" cy="25" r="22" fill="yellow" stroke="orange" stroke-width="5"/>-->
+           <!--<polygon points="150,50 90,238 240,118 60,118 210,238"
+         style="stroke:#660000; fill:#cc3333;"/>-->
+         <polygon points=" 130,50 130,238 
+                           260,118 60,118 
+                           220,238 220,60 
+                           210,200 200,238 200,50"
+         style="stroke:#660000; fill:#cc3333;"/>
+           </svg>
         </div>
         <div id="imagePreview" [hidden]="!image">
             <img [src]="externalImage">
@@ -17,4 +27,10 @@
 </div>
 
 
-<!--http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/014/0014014674.jpg-->
+<!--[hidden]="!canvas" http://cdn01.ib.infobae.com/adjuntos/162/imagenes/014/014/0014014674.jpg-->
+
+
+<!--
+    70,200 150,100 230,200
+    150,50 90,238 240,118 60,118 210,238
+-->

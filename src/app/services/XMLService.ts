@@ -11,7 +11,6 @@ import { FormControl,
          FormArray } from '@angular/forms';
 
 import { xmlbuilder } from "xmlbuilder";
-import { XMLWriter } from "xml-writer";
 
 @Injectable()
 export class XMLService {
@@ -94,52 +93,37 @@ export class XMLService {
     valueGeneral;
     valueBorder;
 
-    value;
+    builder = require('xmlbuilder');
+    xml = this.builder.create(this.styleLayerDesc, this.utfVersion)
+                      .att(this.styleLayerAttr)
+                      .ele(this.namedLayer)
+                      .ele(this.userStyle)
+                      .ele(this.featureType)
+                      .ele(this.rule);
 
-    xmlWriter = require('xml-writer');
-    xw = new XMLWriter();
+    pointTag = this.xml.ele(this.pointSymbolizer);
 
-    start = this.xw.startDocument('1.0', 'UTF-8');
-
-    pointTag = this.start.startElement(function() {
-        if(this.pointValue) {
-            return this.pointSymbolizer;
-        }
-    });
-
-
-    // builder = require('xmlbuilder');
-    // xml = this.builder.create(this.styleLayerDesc, this.utfVersion)
-    //                   .att(this.styleLayerAttr)
-    //                   .ele(this.namedLayer)
-    //                   .ele(this.userStyle)
-    //                   .ele(this.featureType)
-    //                   .ele(this.rule);
-
-    // pointTag = this.xml.ele(this.pointSymbolizer);
-
-    // symbolTag = this.pointTag.ele(this.graphic)
-    //                          .ele(this.mark)
-    //                          .ele(this.wellKnownName, this.symbolValue);
+    symbolTag = this.pointTag.ele(this.graphic)
+                             .ele(this.mark)
+                             .ele(this.wellKnownName, this.symbolValue);
                              
 
-    // onlineResourceAttr = {
-    //                         'xlink:type' : "simple",
-    //                         'xlink:href' : ''
-    //                     };
+    onlineResourceAttr = {
+                            'xlink:type' : "simple",
+                            'xlink:href' : ''
+                        };
 
-    // imageTag =  this.pointTag.ele(this.graphic)
-    //                          .ele(this.externalGraphic)
-    //                          .ele(this.onlineResource, this.onlineResourceAttr)
-    //                          .up()
-    //                          .ele(this.format);
+    imageTag =  this.pointTag.ele(this.graphic)
+                             .ele(this.externalGraphic)
+                             .ele(this.onlineResource, this.onlineResourceAttr)
+                             .up()
+                             .ele(this.format);
 
-    // sizeTag = this.xml.ele(this.size, this.sizeValue);
+    sizeTag = this.xml.ele(this.size, this.sizeValue);
 
-    // strokeTag = this.xml.ele(this.stroke);
+    strokeTag = this.xml.ele(this.stroke);
         
     setXMLValues(value:any) {
-        this.value = value;
         console.log(value);
         this.valueGeneral = value.general;
         this.valueBorder = value.border;
@@ -177,18 +161,18 @@ export class XMLService {
 
 
     createXMLPoint() {
-        this.pointTag
-    //     if (this.valueGeneral != null) {
-    //        Object.keys(this.valueGeneral).forEach((key) => {
-    //             for (let attr in this.strokeAttr) {
-    //                 if (key == attr) {
-    //                    // this.strokeTag.ele(this.cssParameter, { name : this.strokeAttr[attr] }, this.widthValue);
-    //                     console.log("key", key);
-    //                     console.log("attr", attr);
-    //                 }
-    //             }
-    //         }); 
-    //     }
-    //     console.log(this.xml.end({ pretty: true , allowEmpty: false})); 
+
+        if (this.valueGeneral != null) {
+           Object.keys(this.valueGeneral).forEach((key) => {
+                for (let attr in this.strokeAttr) {
+                    if (key == attr) {
+                       // this.strokeTag.ele(this.cssParameter, { name : this.strokeAttr[attr] }, this.widthValue);
+                        console.log("key", key);
+                        console.log("attr", attr);
+                    }
+                }
+            }); 
+        }
+        console.log(this.xml.end({ pretty: true , allowEmpty: false})); 
      }
 }

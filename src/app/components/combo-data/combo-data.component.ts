@@ -23,7 +23,7 @@ export class ComboDataComponent extends Forms implements OnInit {
 
   shapes: any = [ 
     {value: 'circle', viewValue: 'Círculo'},
-    {value: 'square', viewValue: 'Cuadradro'},
+    {value: 'square', viewValue: 'Cuadrado'},
     {value: 'triangle', viewValue: 'Triángulo'},
     {value: 'star', viewValue: 'Estrella'},
     {value: 'cross', viewValue: 'Cruz'},

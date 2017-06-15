@@ -37,5 +37,9 @@
       height: 295px;
       width: 300px;
     }
-
+svg {
+  border: #1f618d 1px solid;
+  height: 295px;
+  width: 300px;
+}
   
