@@ -22,5 +22,6 @@ export class CreateButtonComponent {
 
   public createShape() {
     this.previewComp.setCanvas(true);
+    this.previewComp.drawPointSquare("20","#1f618d","0", "circle", "myCircle");
   }
 }
