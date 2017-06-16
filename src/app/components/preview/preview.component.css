@@ -34,12 +34,12 @@
       }
 
     img {
-      height: 295px;
+      height: 300px;
       width: 300px;
     }
-svg {
-  border: #1f618d 1px solid;
-  height: 300px;
-  width: 300px;
-}
+    svg {
+      /*border: #1f618d 1px solid;*/
+      height: 300px;
+      width: 300px;
+    }
   

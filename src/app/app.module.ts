@@ -18,6 +18,7 @@ import {MdCheckboxModule,
 
 import { PreviewService } from "./services/PreviewService";
 import { XMLService } from "./services/XMLService";
+import { D3Service } from 'd3-ng2-service';
 
 import { xmlbuilder } from "xmlbuilder";
 
@@ -63,7 +64,7 @@ import 'hammerjs';
     GeneralComponent,
     PolygonTabComponent,
     GeneralTextComponent,
-    XmlButtonComponent
+    XmlButtonComponent,
   ],
   imports: [
     CommonModule, 
@@ -87,6 +88,7 @@ import 'hammerjs';
   providers: [
               PreviewService,
               XMLService,
+              D3Service
               ],
   bootstrap: [AppComponent]
 })

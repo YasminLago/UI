@@ -21,7 +21,8 @@ export class CreateButtonComponent {
   constructor(private previewService:PreviewService) { }
 
   public createShape() {
-    this.previewComp.setCanvas(true);
-    this.previewComp.drawPointSquare("20","#1f618d","0", "circle", "myCircle");
+    this.previewComp.setSvg(true);
+    //this.previewComp.drawPointSquare("20","#1f618d","0", "circle", "myCircle");
+    this.previewComp.drawPol();
   }
 }

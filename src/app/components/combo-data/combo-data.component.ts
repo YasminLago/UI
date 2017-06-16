@@ -29,7 +29,7 @@ export class ComboDataComponent extends Forms implements OnInit {
     {value: 'cross', viewValue: 'Cruz'},
     {value: 'x', viewValue: 'X'}
   ];
-  selectedShape: string;
+  selectedShape: string = this.shapes[0];
 
   constructor(private previewService:PreviewService) {
     super();
