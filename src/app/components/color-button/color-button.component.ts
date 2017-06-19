@@ -37,8 +37,8 @@ export class ColorButtonComponent extends Forms implements OnInit{
 
   colorPicker() {
     this.previewService.setValue(this.attrName, this.color);
-    console.log("color en color button"+this.color);
-    console.log(this.attrName);
+    // console.log("color en color button"+this.color);
+    // console.log(this.attrName);
   }
 
 }

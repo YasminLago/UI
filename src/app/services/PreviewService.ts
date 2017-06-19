@@ -105,7 +105,7 @@ export class PreviewService {
     setColor(color:string) {
         this.previewAttr.setColor(color);
         this.anyProperty.next(this.previewAttr);
-        console.log("Color en preview Service " + color);
+        // console.log("Color en preview Service " + color);
     }
 
 

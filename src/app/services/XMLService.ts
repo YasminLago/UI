@@ -2,6 +2,13 @@
  * Recibe los datos contenidos en el FormGroup de
  * point-tab y los incluye en el XML
  */
+
+
+/**
+ * Clases para la creación del XML
+ * https://www.npmjs.com/package/xmlbuilder 
+ * https://www.npmjs.com/package/xml-writer
+ */
 import {Injectable} from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { FormControl, 
@@ -93,38 +100,38 @@ export class XMLService {
     valueGeneral;
     valueBorder;
 
-    builder = require('xmlbuilder');
-    xml = this.builder.create(this.styleLayerDesc, this.utfVersion)
-                      .att(this.styleLayerAttr)
-                      .ele(this.namedLayer)
-                      .ele(this.userStyle)
-                      .ele(this.featureType)
-                      .ele(this.rule);
+    // builder = require('xmlbuilder');
+    // xml = this.builder.create(this.styleLayerDesc, this.utfVersion)
+    //                   .att(this.styleLayerAttr)
+    //                   .ele(this.namedLayer)
+    //                   .ele(this.userStyle)
+    //                   .ele(this.featureType)
+    //                   .ele(this.rule);
 
-    pointTag = this.xml.ele(this.pointSymbolizer);
+    // pointTag = this.xml.ele(this.pointSymbolizer);
 
-    symbolTag = this.pointTag.ele(this.graphic)
-                             .ele(this.mark)
-                             .ele(this.wellKnownName, this.symbolValue);
+    // symbolTag = this.pointTag.ele(this.graphic)
+    //                          .ele(this.mark)
+    //                          .ele(this.wellKnownName, this.symbolValue);
                              
 
-    onlineResourceAttr = {
-                            'xlink:type' : "simple",
-                            'xlink:href' : ''
-                        };
+    // onlineResourceAttr = {
+    //                         'xlink:type' : "simple",
+    //                         'xlink:href' : ''
+    //                     };
 
-    imageTag =  this.pointTag.ele(this.graphic)
-                             .ele(this.externalGraphic)
-                             .ele(this.onlineResource, this.onlineResourceAttr)
-                             .up()
-                             .ele(this.format);
+    // imageTag =  this.pointTag.ele(this.graphic)
+    //                          .ele(this.externalGraphic)
+    //                          .ele(this.onlineResource, this.onlineResourceAttr)
+    //                          .up()
+    //                          .ele(this.format);
 
-    sizeTag = this.xml.ele(this.size, this.sizeValue);
+    // sizeTag = this.xml.ele(this.size, this.sizeValue);
 
-    strokeTag = this.xml.ele(this.stroke);
+    // strokeTag = this.xml.ele(this.stroke);
         
     setXMLValues(value:any) {
-        console.log(value);
+        // console.log(value);
         this.valueGeneral = value.general;
         this.valueBorder = value.border;
 
@@ -141,7 +148,6 @@ export class XMLService {
 
 
     append2xml(xml:any, attrname?:string, sameLevel?:boolean, value?:any) {
-            
             // if(this.pointValue) {
             //     this.pointTags;
             //     console.log(this.xml.end({ pretty: true , allowEmpty: false})); 
@@ -159,20 +165,18 @@ export class XMLService {
            // xml = xml.ele(attrname, value);       
     }
 
-
     createXMLPoint() {
-
-        if (this.valueGeneral != null) {
-           Object.keys(this.valueGeneral).forEach((key) => {
-                for (let attr in this.strokeAttr) {
-                    if (key == attr) {
-                       // this.strokeTag.ele(this.cssParameter, { name : this.strokeAttr[attr] }, this.widthValue);
-                        console.log("key", key);
-                        console.log("attr", attr);
-                    }
-                }
-            }); 
-        }
-        console.log(this.xml.end({ pretty: true , allowEmpty: false})); 
+        // if (this.valueGeneral != null) {
+        //    Object.keys(this.valueGeneral).forEach((key) => {
+        //         for (let attr in this.strokeAttr) {
+        //             if (key == attr) {
+        //                // this.strokeTag.ele(this.cssParameter, { name : this.strokeAttr[attr] }, this.widthValue);
+        //                 console.log("key", key);
+        //                 console.log("attr", attr);
+        //             }
+        //         }
+        //     }); 
+        // }
+        // console.log(this.xml.end({ pretty: true , allowEmpty: false})); 
      }
 }

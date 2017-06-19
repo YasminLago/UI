@@ -125,8 +125,8 @@ export class PreviewComponent implements AfterViewInit {
         this.shapeTag.setAttributeNS(null, "cy", '150');
         this.shapeTag.setAttributeNS(null,"r", size);
       } else {
-        this.shapeTag.setAttributeNS(null,"x",'135');
-        this.shapeTag.setAttributeNS(null,"y",'135');
+        this.shapeTag.setAttributeNS(null,"x",'125');
+        this.shapeTag.setAttributeNS(null,"y",'125');
         this.shapeTag.setAttributeNS(null,"width", size);
         this.shapeTag.setAttributeNS(null,"height", size);
       }
@@ -139,12 +139,22 @@ export class PreviewComponent implements AfterViewInit {
   drawPolygon(size?:string, color?:string, widthStroke?:string, shape?:string, shapeId?:string) {
     var pointList = [];
     this.shapeTag.setAttributeNS(null, "id", shapeId);
-
+    var build = (arg) => {
+      var res = [];
+      var l = arg.length;
+      for(var i=0; i<l; i++) {
+        res.push(arg[i].join(','));
+      }
+      return res.join(' ');
+    }
+    // var attribute = (key, val) => {
+    //   if(val === undefined) {
+    //     return this.shapeTag.getAtt
+    //   }
+    // }
+    
     if(shape == "triangle") {
-
-
-        
-      
+      build(pointList);
     }
   }
 

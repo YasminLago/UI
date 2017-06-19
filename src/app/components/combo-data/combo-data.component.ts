@@ -34,7 +34,6 @@ export class ComboDataComponent extends Forms implements OnInit {
   constructor(private previewService:PreviewService) {
     super();
   }
-
   
   ngOnInit() {
     this.setForm(this.parentForm);

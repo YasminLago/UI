@@ -19,7 +19,7 @@ export class Attribute {
   setAttrs(attr:any) {
     for (let i=0; i < this.ATTR.length; i++){
       let attribute = this.ATTR [attr];
-      console.log(this.ATTR [attr]);
+     // console.log(this.ATTR [attr]);
       return attribute;
     }
   }
