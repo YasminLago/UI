@@ -100,35 +100,6 @@ export class XMLService {
     valueGeneral;
     valueBorder;
 
-    // builder = require('xmlbuilder');
-    // xml = this.builder.create(this.styleLayerDesc, this.utfVersion)
-    //                   .att(this.styleLayerAttr)
-    //                   .ele(this.namedLayer)
-    //                   .ele(this.userStyle)
-    //                   .ele(this.featureType)
-    //                   .ele(this.rule);
-
-    // pointTag = this.xml.ele(this.pointSymbolizer);
-
-    // symbolTag = this.pointTag.ele(this.graphic)
-    //                          .ele(this.mark)
-    //                          .ele(this.wellKnownName, this.symbolValue);
-                             
-
-    // onlineResourceAttr = {
-    //                         'xlink:type' : "simple",
-    //                         'xlink:href' : ''
-    //                     };
-
-    // imageTag =  this.pointTag.ele(this.graphic)
-    //                          .ele(this.externalGraphic)
-    //                          .ele(this.onlineResource, this.onlineResourceAttr)
-    //                          .up()
-    //                          .ele(this.format);
-
-    // sizeTag = this.xml.ele(this.size, this.sizeValue);
-
-    // strokeTag = this.xml.ele(this.stroke);
         
     setXMLValues(value:any) {
         // console.log(value);
@@ -146,37 +117,4 @@ export class XMLService {
         this.widthValue = this.valueBorder != undefined ? this.valueBorder.width : null;
     }
 
-
-    append2xml(xml:any, attrname?:string, sameLevel?:boolean, value?:any) {
-            // if(this.pointValue) {
-            //     this.pointTags;
-            //     console.log(this.xml.end({ pretty: true , allowEmpty: false})); 
-            // }
-            
-            // if(sameLevel) {
-            //    this.xml = xml.up().ele(attrname);
-            // }
-            // else {
-            //    this.xml = xml.ele(attrname);
-            // }
-
-            // xml = xml.ele(attrname,{ key : value});
-            // xml = xml.ele(attrname);
-           // xml = xml.ele(attrname, value);       
-    }
-
-    createXMLPoint() {
-        // if (this.valueGeneral != null) {
-        //    Object.keys(this.valueGeneral).forEach((key) => {
-        //         for (let attr in this.strokeAttr) {
-        //             if (key == attr) {
-        //                // this.strokeTag.ele(this.cssParameter, { name : this.strokeAttr[attr] }, this.widthValue);
-        //                 console.log("key", key);
-        //                 console.log("attr", attr);
-        //             }
-        //         }
-        //     }); 
-        // }
-        // console.log(this.xml.end({ pretty: true , allowEmpty: false})); 
-     }
 }

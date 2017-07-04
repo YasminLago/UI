@@ -36,8 +36,6 @@ export class CheckboxComponent extends Forms implements OnInit {
 
   activeBorder(){
     this.previewService.setValue(this.attrName,this.isCheck);
-    // console.log("Atributo en Check:  " + this.attrName);
-    // console.log("Check en Check:  " + this.isCheck);
     if(this.isCheck == false) {
       this.previewService.setWidth(5);
     }

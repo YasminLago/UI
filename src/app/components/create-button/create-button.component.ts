@@ -10,7 +10,7 @@ import { PreviewService } from "../../services/PreviewService";
   styleUrls: ['./create-button.component.css',
               '../../styles/buttonStyle.css'],
   inputs: [
-    'previewComp : preview-comp', //preview#previewComponent --[preview-comp]=previewComponent
+    'previewComp : preview-comp',
   ]
 })
 export class CreateButtonComponent {
@@ -23,6 +23,5 @@ export class CreateButtonComponent {
   public createShape() {
     this.previewComp.setSvg(true);
     this.previewComp.drawPointSquare("20","#1f618d","0", "circle", "myCircle");
-    // this.previewComp.drawPol();
   }
 }

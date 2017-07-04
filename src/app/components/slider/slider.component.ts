@@ -31,9 +31,6 @@ export class SliderComponent extends Forms implements OnInit {
   @Input('max-value') maxValue:number; //Valor máximo del slider
   @Input('parent-form') parentForm: FormGroup; //FormGroup al que pertenece. Recibe este valor en (border-style y general)
   parentControl: FormControl;
-  //@Input ('active') active:boolean;
-  
-  //general: GeneralComponent;
 
   constructor(private previewService:PreviewService) {
     super();
@@ -63,8 +60,4 @@ export class SliderComponent extends Forms implements OnInit {
     //this.attributes.setAttrs(this.attrName)
     this.previewService.setValue(this.attrName, this.sliderValue);
   }
-
-  /*active(active:boolean) {
-    this.general.setOpacity(active);
-  }*/
 }

@@ -35,14 +35,8 @@ export class PointTabComponent {
    */
   onInnerFormGroupChange(arg) {
     this.innerDataCache[arg.id] = arg.values;
-    //console.log("POINT TAB", this.innerDataCache);
     this.xmlService.setXMLValues(this.innerDataCache); //Envía los datos a XMLService
   }
 
-  
 
-  /* activeOpacity(value:boolean){
-     this.opacityActive = value;
-     console.log(this.opacityActive);
-   }*/
 }

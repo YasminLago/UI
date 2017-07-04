@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-//import {ColorPickerService} from 'angular2-color-picker';
+//import {ColorPickerService} from 'angular2-color-picker'; 
 
 import { PreviewService } from "../../services/PreviewService";
 import {FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
@@ -37,8 +37,6 @@ export class ColorButtonComponent extends Forms implements OnInit{
 
   colorPicker() {
     this.previewService.setValue(this.attrName, this.color);
-    // console.log("color en color button"+this.color);
-    // console.log(this.attrName);
   }
 
 }

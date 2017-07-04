@@ -55,12 +55,4 @@ export class ImageComponent extends Forms implements OnInit{
     this.previewService.setExternalImage(false);
   }
 
- /* public activeOpac() {
-    if (this.externalImage != "") {
-      this.activeOpacity.active(true);
-    } else {
-      this.activeOpacity.active(false);
-    }
-  }*/
-
 }

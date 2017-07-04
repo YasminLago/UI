@@ -25,7 +25,6 @@ export class RotateComponent extends Forms implements OnInit {
 
    ngOnInit() {
     this.setForm(this.parentForm);
-    //console.log("Parent form rotate",this.parentForm);
     this.setAttrName(this.attrName);
 
     this.parentControl = new FormControl();
@@ -38,20 +37,14 @@ export class RotateComponent extends Forms implements OnInit {
   rotateLeftValue() {
     this.rotateValue--;
     this.previewService.setValue(this.attrName, this.rotateValue);
-   // console.log("text attr: " + this.attrName);
-   // console.log("RotateValue1: " + this.rotateValue);
   }
 
   rotateRightValue() {
     this.rotateValue++;
     this.previewService.setValue(this.attrName, this.rotateValue);
-   // console.log("text attr: " + this.attrName);
-    //console.log("RotateValue2: " + this.rotateValue);
   }
 
   rotateInputValue() {
       this.previewService.setValue(this.attrName, this.rotateValue);
-     // console.log("text attr: " + this.attrName);
-     // console.log("Rotatevalue3: " + this.rotateValue);
   }
 }
